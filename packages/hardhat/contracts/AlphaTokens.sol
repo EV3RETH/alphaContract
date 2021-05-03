@@ -33,7 +33,7 @@ contract AlphaTokens is ERC721, Ownable {
 	function safeTransferFrom(address from, address to, uint256 tokenId) public override(ERC721) {
 		super.safeTransferFrom(from, to, tokenId);
 		if(lottoOpen) {
-			if(lotteryPool.length % 3 == 2) {
+			if(lotteryPool.length == 23) {
 				chooseLottoWinner();
 			} else {
 				lotteryPool.push(to);

@@ -43,6 +43,7 @@
     "ethers": "^5.0.31",
     "graphiql": "^1.0.5",
     "graphql": "^15.3.0",
+    "iframe-resizer": "^4.3.2",
     "isomorphic-fetch": "^3.0.0",
     "node-watch": "^0.7.1",
     "postcss": "^8.2.6",
@@ -55,6 +56,8 @@
     "react-qr-reader": "^2.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
+    "simplex-noise": "^2.4.0",
+    "victor": "^1.1.0",
     "web3modal": "^1.9.1"
   },
   "devDependencies": {
