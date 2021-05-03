@@ -1,7 +1,7 @@
 {
-  "short_name": "🏗 Scaffold-Eth App",
+  "short_name": "EV3RETH",
   "start_url": ".",
-  "name": "🏗 Scaffold-Eth App",
+  "name": "EV3RETH",
   "icons": [
     {
       "src": "favicon.ico",
@@ -9,17 +9,16 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "EV3RETH.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "300x300"
     },
     {
-      "src": "logo512.png",
+      "src": "EV3RETH-full.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "750x750"
     }
   ],
-  "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
