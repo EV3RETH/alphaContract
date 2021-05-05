@@ -1,23 +1,21 @@
 .button {
 	font-family: "Zen Dots";
-	letter-spacing: 3px;
-	border: none;
-	box-shadow: inset 2px 2px 4px rgba(165, 163, 163, 0.3);
+	color: seashell;
+	letter-spacing: 2px;
+	font-size: 30px;
+	text-shadow: 2px 2px 5px gray;
+	/* box-shadow: inset 2px 2px 4px rgba(165, 163, 163, 0.3); */
 	position: relative;
-	padding: 30px 35px;
-	background-color: gray;
+	padding: 40px 50px;
 	border-radius: 50%;
-	z-index: 1;
 	transition: 0.8s;
-	background-image: linear-gradient(120deg, rgb(63, 76, 80),rgb(60, 45, 63), rgb(47, 36, 39));
+	/* background-color: rgba(128, 128, 128, 0.1); */
+	/* background-image: linear-gradient(120deg, rgb(63, 76, 80),rgb(60, 45, 63), rgb(47, 36, 39)); */
 }
 .button:hover {
 	cursor: pointer;
 	transform: scale(1.1);
-	color: black;
-	animation: buttonHover 1s;
-	animation-timing-function: ease;
-	background-image: linear-gradient(120deg, rgb(0, 128, 163), rgb(144, 0, 167), rgb(153, 1, 39));
+	/* background-image: linear-gradient(120deg, rgb(0, 128, 163), rgb(144, 0, 167), rgb(153, 1, 39)); */
 }
 
 .hero-container {
@@ -45,9 +43,10 @@
 }
 
 .title-haze {
+	--haze-margin: -100px;
 	max-width: 1100px;
 	position: absolute;
-	margin-top: -50px;
+	margin-top: var(--haze-margin);
 	animation: wiggle 15s infinite;
 	animation-delay: 5s;
 }
@@ -77,49 +76,49 @@
 	filter: blur(4px) brightness(0.5);
 }
 
-@keyframes buttonHover {
+/* @keyframes buttonHover {
 	from {	
 		background-image: linear-gradient(120deg, rgb(63, 76, 80),rgb(60, 45, 63), rgb(47, 36, 39));
 	}
 	to{ 
 		background-image: linear-gradient(120deg, rgb(0, 128, 163), rgb(144, 0, 167), rgb(153, 1, 39));
 	}
-}
+} */
 @keyframes wiggle {
 	0% {
-		margin-top: -50px;;
+		margin-top: var(--haze-margin);
 		margin-left: 0;
 	}
 	10% {
-		margin-top: -50px;;
+		margin-top: var(--haze-margin);
 		margin-left: 0;
 	}
 	20% {
-		margin-top: -30px;
+		margin-top: calc(var(--haze-margin) + 20px);
 		margin-left: 20px;
 	}
 	35% {
-		margin-top: -50px;
+		margin-top: var(--haze-margin);
 		margin-left: -20px;
 	}
 	50% {
-		margin-top: -70px;
+		margin-top: calc(var(--haze-margin) - 20px);
 		margin-left: 30px;
 	}
 	65%{
-		margin-top: -50px;
+		margin-top: var(--haze-margin);
 		margin-left: -30px;
 	}
 	80% {
-		margin-top: -30px;;
+		margin-top:calc(var(--haze-margin) + 20px);
 		margin-left: -20px;
 	}
 	90% {
-		margin-top: -50px;;
+		margin-top: var(--haze-margin);
 		margin-left: 0;
 	}
 	100% {
-		margin-top: -50px;
+		margin-top: var(--haze-margin);
 		margin-left: 0
 	} 
 }

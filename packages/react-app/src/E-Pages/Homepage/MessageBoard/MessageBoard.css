@@ -1,0 +1,36 @@
+.message-board {
+	padding: 100px;
+	width: 100%;
+	/* border: 30px ridge rgb(34, 34, 34); */
+	box-shadow: inset 1px 1px 20px 10px rgba(0, 0, 0, 1);
+	background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(51, 51, 51, 0.8));
+	/* text-align: center; */
+	text-shadow: 3px 3px 3px rgb(0, 0, 0);
+}
+
+.message-container {
+	margin: 0 auto;
+		max-width: 1440px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+}
+
+img {
+	float: right;
+}
+
+.winner {
+	border: 2px solid skyblue;
+	/* background: linear-gradient(120deg, rgba(0, 128, 163, 0.3), rgba(144, 0, 167, 0.3), rgba(153, 1, 39, 0.3)); */
+	padding: 40px;
+	border-radius: 10px;
+	text-align: center;
+	grid-column: 1 / span 2;
+}
+
+.winner button {
+	background: transparent;
+	text-shadow: inherit;
+	cursor: pointer;
+}
