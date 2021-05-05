@@ -1,8 +1,36 @@
 body {
-		font-family: 'Zen Dots', cursive;
+		font-family: Roboto, sans-serif;
 		background-color: black;
+		color: skyblue;
+		font-size: 16px;
 }
 
 a {
 	color: inherit;
+	text-decoration: underline;
+}
+
+h1 {
+	color: seashell;
+	font-family: 'Zen Dots', cursive;
+	font-size: 40px;
+}
+h2 {
+	color: seashell;
+	font-size: 30px;
+}
+
+i {
+	font-size: 14px;
+	color: silver;
+}
+
+button {
+	background: transparent;
+	border: none;
+}
+
+strong {
+	font-size: 18px;
+	color: aliceblue;
 }
