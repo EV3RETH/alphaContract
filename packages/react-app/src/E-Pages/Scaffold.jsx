@@ -15,6 +15,7 @@ import { Hints, ExampleUI, Subgraph } from "../views"
 import { useThemeSwitcher } from "react-css-theme-switcher";
 import { INFURA_ID, DAI_ADDRESS, DAI_ABI, NETWORK, NETWORKS } from "../constants";
 import ReactJson from 'react-json-view'
+
 const { BufferList } = require('bl')
 // https://www.npmjs.com/package/ipfs-http-client
 const ipfsAPI = require('ipfs-http-client');
@@ -40,7 +41,7 @@ const ipfs = ipfsAPI({ host: 'ipfs.infura.io', port: '5001', protocol: 'https' }
 
 
 /// 📡 What chain are your contracts deployed to?
-const targetNetwork = NETWORKS['rinkeby']; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+const targetNetwork = NETWORKS['localhost']; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
 const DEBUG = true
@@ -217,7 +218,7 @@ function App(props) {
 					message={"⚠️ Wrong Network"}
 					description={(
 						<div>
-							You have <b>{NETWORK(selectedChainId).name}</b> selected and you need to be on <b>{NETWORK(localChainId).name}</b>.
+							You have <b>{NETWORK(selectedChainId)?.name}</b> selected and you need to be on <b>{NETWORK(localChainId).name}</b>.
 						</div>
 					)}
 					type="error"
