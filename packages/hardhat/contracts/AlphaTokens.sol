@@ -21,8 +21,9 @@ contract AlphaTokens is ERC721, Ownable {
 	address proxyRegistryAddress;
 
 	address[] public lotteryPool;
-	bool public lottoOpen = true;
-	address public lottoWinner;
+	uint8 public prizesRemaining = 2;
+	address public XWinner;
+	address public YWinner;
 
   constructor(address _proxyRegistryAddress) public ERC721("AlphaTokens", "α") {
     _setBaseURI("https://ipfs.io/ipfs/");
@@ -30,67 +31,90 @@ contract AlphaTokens is ERC721, Ownable {
   }
 
 	//OVERRIDES
-	function safeTransferFrom(address from, address to, uint256 tokenId) public override(ERC721) {
-		super.safeTransferFrom(from, to, tokenId);
-		if(lottoOpen) {
-			if(lotteryPool.length == 23) {
-				chooseLottoWinner();
-			} else {
-				lotteryPool.push(to);
-			}
-		}
-	}
+	// function safeTransferFrom(address from, address to, uint256 tokenId) public override(ERC721) {
+	// 	super.safeTransferFrom(from, to, tokenId);
+	// 	if(lottoOpen) {
+	// 		if(lotteryPool.length == 23) {
+	// 			chooseLottoWinner();
+	// 		} else {
+	// 			lotteryPool.push(to);
+	// 		}
+	// 	}
+	// }
 
 	function transferFrom(address from, address to, uint256 tokenId) public override(ERC721) {
 		super.transferFrom(from, to, tokenId);
-		if(lottoOpen) {
-			if(lotteryPool.length % 3 == 2) {
-				chooseLottoWinner();
-			} else {
-				lotteryPool.push(to);
-			}
+		if(prizesRemaining != 0) {
+			lotteryPool.push(to);
+			if(getUnsold() == 1) {
+				chooseLotteryWinner();
+			} 
 		}
 	}
-	function isApprovedForAll(address owner, address operator) public view override returns(bool) {
-		// Whitelist OpenSea proxy contract for easy trading.
-        ProxyRegistry proxyRegistry = ProxyRegistry(proxyRegistryAddress);
-        if (address(proxyRegistry.proxies(owner)) == operator) {
-            return true;
-        }
 
-        return super.isApprovedForAll(owner, operator);
-	}
-	function approve(address to, uint256 tokenId) public virtual override {
-        address owner = ERC721.ownerOf(tokenId);
-        require(to != owner, "ERC721: approval to current owner");
+	//Open Sea required functions
+	// function isApprovedForAll(address owner, address operator) public view override returns(bool) {
+	// 	// Whitelist OpenSea proxy contract for easy trading.
+  //       ProxyRegistry proxyRegistry = ProxyRegistry(proxyRegistryAddress);
+  //       if (address(proxyRegistry.proxies(owner)) == operator) {
+  //           return true;
+  //       }
 
-        require(_msgSender() == owner || isApprovedForAll(owner, _msgSender()),
-            "ERC721: approve caller is not owner nor approved for all"
-        );
+  //       return super.isApprovedForAll(owner, operator);
+	// }
+	// function approve(address to, uint256 tokenId) public virtual override {
+  //       address owner = ERC721.ownerOf(tokenId);
+  //       require(to != owner, "ERC721: approval to current owner");
 
-        _approve(to, tokenId);
-    }
+  //       require(_msgSender() == owner || isApprovedForAll(owner, _msgSender()),
+  //           "ERC721: approve caller is not owner nor approved for all"
+  //       );
 
-    /**
-     * Override _isApprovedOrOwner as the OZ version does not respect an overriden isApprovedForAll method.
-     */
-    function _isApprovedOrOwner(address spender, uint256 tokenId) internal view virtual override returns (bool) {
-        return isApprovedForAll(ownerOf(tokenId), spender)
-            || super._isApprovedOrOwner(spender, tokenId);
-    }
+  //       _approve(to, tokenId);
+  //   }
+
+  //   /**
+  //    * Override _isApprovedOrOwner as the OZ version does not respect an overriden isApprovedForAll method.
+  //    */
+  //   function _isApprovedOrOwner(address spender, uint256 tokenId) internal view virtual override returns (bool) {
+  //       return isApprovedForAll(ownerOf(tokenId), spender)
+  //           || super._isApprovedOrOwner(spender, tokenId);
+  //   }
+
+//TODO: do I need this?
+		// //for OpenSea minting, use _setTokenURI later to assign metadata
+	// function mintTo(address _to) public onlyOwner {
+	// 	_tokenIds.increment();
+	// 	uint256 id = _tokenIds.current();
+	// 	_mint(_to, id);
+	// }
 
 	//CUSTOM
+
+	function getUnsold() public returns(uint256) {
+		return balanceOf(owner());
+	}
 
 	function random() private returns(uint8) {
 		return uint8(uint256(keccak256(abi.encodePacked(block.timestamp, msg.sender, blockhash(block.number - 1))))%251);
 	}
 
-	function chooseLottoWinner() public {
-		require(lottoOpen, "Lottery closed");
-		lottoOpen = false;
+	function chooseLotteryWinner() public {
+		require(prizesRemaining != 0, "Lottery closed");
 		uint randomIndex = random() % lotteryPool.length;
+
+		if(prizesRemaining == 2) {
+			XWinner = lotteryPool[randomIndex];
 		_transfer(address(this), lotteryPool[randomIndex], 1);
-		lottoWinner = lotteryPool[randomIndex];
+		} else if (prizesRemaining ==1) {
+			YWinner = lotteryPool[randomIndex];	
+			_transfer(address(this), lotteryPool[randomIndex], 6);
+		}
+		prizesRemaining--;
+	}
+
+	function getLotteryPool() public view returns (address[] memory) {
+		return lotteryPool;
 	}
 	
 	function mintItem(address to, string memory tokenURI)
@@ -107,25 +131,11 @@ contract AlphaTokens is ERC721, Ownable {
       return id;
   }
 
-	//for OpenSea minting, use _setTokenURI later to assign metadata
-	function mintTo(address _to) public onlyOwner {
-		_tokenIds.increment();
-		uint256 id = _tokenIds.current();
-		_mint(_to, id);
-	}
 
-	//DEV ONLY. !!!!!!DELETE THIS BEFORE MAINNET!!!!!
+
+
+	//TODO: DEV ONLY. !!!!!!DELETE THIS BEFORE MAINNET!!!!!
 	function addToLotteryPool(address to) public {
 		lotteryPool.push(to);
-	}
-
-	function resetLotto(address from) public {
-		_transfer(from, address(this)	, 1);
-		delete lottoWinner;
-		lottoOpen = true;
-	}
-
-		function getLotteryPool() public view returns (address[] memory) {
-		return lotteryPool;
 	}
 }

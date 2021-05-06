@@ -5,7 +5,7 @@ const { config, ethers, tenderly, run } = require("hardhat");
 const { utils } = require("ethers");
 const R = require("ramda");
 
-const NETWORK = 'rinkeby'
+const NETWORK = 'localhost'
 
 const main = async () => {
 
