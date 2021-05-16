@@ -41,10 +41,10 @@ const ipfs = ipfsAPI({ host: 'ipfs.infura.io', port: '5001', protocol: 'https' }
 
 
 /// 📡 What chain are your contracts deployed to?
-const targetNetwork = NETWORKS['localhost']; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+const targetNetwork = NETWORKS.localhost; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
-const DEBUG = true
+const DEBUG = false;
 
 //EXAMPLE STARTING JSON:
 const STARTING_JSON = {
@@ -63,6 +63,12 @@ const STARTING_JSON = {
 		}
 	]
 }
+
+
+
+
+
+
 
 //helper function to "Get" from IPFS
 // you usually go content.toString() after this...
@@ -100,7 +106,6 @@ const localProvider = new JsonRpcProvider(localProviderUrlFromEnv);
 // 🔭 block explorer URL
 const blockExplorer = targetNetwork.blockExplorer;
 
-
 function App(props) {
 
 	const mainnetProvider = (scaffoldEthProvider && scaffoldEthProvider._network) ? scaffoldEthProvider : mainnetInfura
@@ -118,10 +123,10 @@ function App(props) {
 	if (DEBUG) console.log("👩‍💼 selected address:", address)
 
 	// You can warn the user if you would like them to be on a specific network
-	let localChainId = localProvider && localProvider._network && localProvider._network.chainId
+	const localChainId = localProvider && localProvider._network && localProvider._network.chainId
 	if (DEBUG) console.log("🏠 localChainId", localChainId)
 
-	let selectedChainId = userProvider && userProvider._network && userProvider._network.chainId
+	const selectedChainId = userProvider && userProvider._network && userProvider._network.chainId
 	if (DEBUG) console.log("🕵🏻‍♂️ selectedChainId:", selectedChainId)
 
 	// For more hooks, check out 🔗eth-hooks at: https://www.npmjs.com/package/eth-hooks
@@ -177,10 +182,9 @@ function App(props) {
 
 	useEffect(() => {
 		const updateAlphaTokens = async () => {
-			let collectibleUpdate = []
+			const collectibleUpdate = []
 			for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
 				try {
-					console.log("GEtting token index", tokenIndex)
 					const tokenId = await readContracts.AlphaTokens.tokenOfOwnerByIndex(address, tokenIndex)
 					console.log("tokenId", tokenId)
 					const tokenURI = await readContracts.AlphaTokens.tokenURI(tokenId)
@@ -188,6 +192,7 @@ function App(props) {
 
 					const ipfsHash = tokenURI.replace("https://ipfs.io/ipfs/", "")
 					console.log("ipfsHash", ipfsHash)
+
 
 					const jsonManifestBuffer = await getFromIPFS(ipfsHash)
 
@@ -211,7 +216,7 @@ function App(props) {
 
 
 	let networkDisplay = ""
-	if (localChainId && selectedChainId && localChainId != selectedChainId) {
+	if (localChainId && selectedChainId && localChainId !== selectedChainId) {
 		networkDisplay = (
 			<div style={{ zIndex: 2, position: 'absolute', right: 0, top: 60, padding: 16 }}>
 				<Alert
@@ -254,7 +259,7 @@ function App(props) {
 	const faucetAvailable = localProvider && localProvider.connection && localProvider.connection.url && localProvider.connection.url.indexOf(window.location.hostname) >= 0 && !process.env.REACT_APP_PROVIDER && price > 1;
 
 	const [faucetClicked, setFaucetClicked] = useState(false);
-	if (!faucetClicked && localProvider && localProvider._network && localProvider._network.chainId == 31337 && yourLocalBalance && formatEther(yourLocalBalance) <= 0) {
+	if (!faucetClicked && localProvider && localProvider._network && localProvider._network.chainId === 31337 && yourLocalBalance && formatEther(yourLocalBalance) <= 0) {
 		faucetHint = (
 			<div style={{ padding: 16 }}>
 				<Button type={"primary"} onClick={() => {
@@ -318,8 +323,9 @@ function App(props) {
 						<div style={{ width: 640, margin: "auto", marginTop: 32, paddingBottom: 32 }}>
 							<List
 								bordered
-								dataSource={alphaTokens}
-								renderItem={(item) => {
+								dataSource={alphaTokens || []}
+								renderItem={async (item) => {
+
 									const id = item.id.toNumber()
 									return (
 										<List.Item key={id + "_" + item.uri + "_" + item.owner}>
@@ -378,7 +384,7 @@ function App(props) {
 												address={item[0]}
 												ensProvider={mainnetProvider}
 												fontSize={16}
-											/> =>
+											/>
 											<Address
 												address={item[1]}
 												ensProvider={mainnetProvider}
