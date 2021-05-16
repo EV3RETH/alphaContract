@@ -20,10 +20,9 @@ contract AlphaTokens is ERC721, Ownable {
   Counters.Counter private _tokenIds;
 	address proxyRegistryAddress;
 
-	address[] public lotteryPool;
-	uint8 public prizesRemaining = 2;
-	address public XWinner;
-	address public YWinner;
+	address[] public addressPool;
+	address public whoGetsTheX = address(0);
+
 
   constructor(address _proxyRegistryAddress) public ERC721("AlphaTokens", "α") {
     _setBaseURI("https://ipfs.io/ipfs/");
@@ -34,22 +33,26 @@ contract AlphaTokens is ERC721, Ownable {
 	// function safeTransferFrom(address from, address to, uint256 tokenId) public override(ERC721) {
 	// 	super.safeTransferFrom(from, to, tokenId);
 	// 	if(lottoOpen) {
-	// 		if(lotteryPool.length == 23) {
+	// 		if(addressPool.length == 23) {
 	// 			chooseLottoWinner();
 	// 		} else {
-	// 			lotteryPool.push(to);
+	// 			addressPool.push(to);
 	// 		}
 	// 	}
 	// }
 
 	function transferFrom(address from, address to, uint256 tokenId) public override(ERC721) {
 		super.transferFrom(from, to, tokenId);
-		if(prizesRemaining != 0) {
-			lotteryPool.push(to);
-			if(getUnsold() == 1) {
+		if(whoGetsTheX == address(0)) {
+			addressPool.push(to);
+			if(getUnsold() == 13) { 
 				chooseLotteryWinner();
 			} 
 		}
+	}
+
+	function getUnsold() public returns(uint) {
+		return balanceOf(owner());
 	}
 
 	//Open Sea required functions
@@ -89,32 +92,19 @@ contract AlphaTokens is ERC721, Ownable {
 	// 	_mint(_to, id);
 	// }
 
-	//CUSTOM
-
-	function getUnsold() public returns(uint256) {
-		return balanceOf(owner());
-	}
-
 	function random() private returns(uint8) {
 		return uint8(uint256(keccak256(abi.encodePacked(block.timestamp, msg.sender, blockhash(block.number - 1))))%251);
 	}
 
 	function chooseLotteryWinner() public {
-		require(prizesRemaining != 0, "Lottery closed");
-		uint randomIndex = random() % lotteryPool.length;
-
-		if(prizesRemaining == 2) {
-			XWinner = lotteryPool[randomIndex];
-		_transfer(address(this), lotteryPool[randomIndex], 1);
-		} else if (prizesRemaining ==1) {
-			YWinner = lotteryPool[randomIndex];	
-			_transfer(address(this), lotteryPool[randomIndex], 6);
-		}
-		prizesRemaining--;
+		require(whoGetsTheX == address(0), "The X is not here anymore");
+		uint randomIndex = random() % addressPool.length;
+		_transfer(address(this), addressPool[randomIndex], 24);
+		whoGetsTheX = addressPool[randomIndex];
 	}
 
-	function getLotteryPool() public view returns (address[] memory) {
-		return lotteryPool;
+	function getAddressPool() public view returns (address[] memory) {
+		return addressPool;
 	}
 	
 	function mintItem(address to, string memory tokenURI)
@@ -135,7 +125,12 @@ contract AlphaTokens is ERC721, Ownable {
 
 
 	//TODO: DEV ONLY. !!!!!!DELETE THIS BEFORE MAINNET!!!!!
-	function addToLotteryPool(address to) public {
-		lotteryPool.push(to);
+	function addToAddressPool(address to) public onlyOwner {
+		addressPool.push(to);
+	}
+
+	function resetLottery(address from) public onlyOwner {
+		_transfer(from, address(this), 24);
+		delete whoGetsTheX;
 	}
 }

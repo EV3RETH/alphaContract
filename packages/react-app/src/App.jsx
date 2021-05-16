@@ -19,11 +19,11 @@ export default function App() {
 	return (
 		<Router>
 			<Switch>
-				<Route exact path="/scaffold">
+				{/* <Route exact path="/scaffold">
 					<ThemeSwitcherProvider themeMap={themes} defaultTheme={prevTheme ? prevTheme : "dark"}>
 						<Scaffold />
 					</ThemeSwitcherProvider>
-				</Route>
+				</Route> */}
 				<Route path="/">
 					<Homepage />
 				</Route>

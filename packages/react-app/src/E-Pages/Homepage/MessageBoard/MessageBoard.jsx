@@ -4,6 +4,7 @@ import './MessageBoard.css'
 import { useContractLoader, useContractReader } from '../../../hooks'
 import { NETWORKS } from '../../../constants';
 import logo from '../../../Images/E.png'
+import B from '../../../Images/B-transparent.png'
 
 
 const targetNetwork = NETWORKS['rinkeby']; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
@@ -20,7 +21,7 @@ export default function MessageBoard() {
 		<div className="message-board">
 			<div className="message-container">
 				<div>
-					<img src={logo} alt="" />
+					<img src={B} alt="" />
 				</div>
 
 				<div>

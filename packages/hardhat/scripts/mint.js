@@ -8,6 +8,8 @@ const ipfsAPI = require('ipfs-http-client');
 const ipfs = ipfsAPI({ host: 'ipfs.infura.io', port: '5001', protocol: 'https' })
 const delayMS = 1000 //sometimes xDAI needs a 6000ms break lol 😅
 
+const tokens = require('./tokens')
+
 const main = async () => {
 
 	// ADDRESS TO MINT TO:
@@ -17,88 +19,20 @@ const main = async () => {
 	console.log("\n\n 🎫 Minting to " + toAddress + "...\n");
 
 	const AlphaTokens = await ethers.getContractAt('AlphaTokens', fs.readFileSync("./artifacts/AlphaTokens.address").toString())
-	const godzilla = {
-		"description": "Raaaar!",
-		"external_url": "https://austingriffith.com/portfolio/paintings/",// <-- this can link to a page for the specific file too
-		"image": "https://austingriffith.com/images/paintings/godzilla.jpg",
-		"name": "Godzilla",
-		"attributes": [
-			{
-				"trait_type": "BackgroundColor",
-				"value": "orange"
-			},
-			{
-				"trait_type": "Eyes",
-				"value": "googly"
-			},
-			{
-				"trait_type": "Stamina",
-				"value": 99
-			}
-		]
+
+
+	for (let i = 1; i <= 26; i++) {
+		const token = tokens[i - 1]
+
+		console.log("Uploading", token.name, "...")
+		const uploaded = await ipfs.add(JSON.stringify(token))
+
+		const address = i === 24 ? AlphaTokens.address : toAddress;
+		console.log("Minting", token.name, "with IPFS hash (" + uploaded.path + ") to: ", address)
+		await AlphaTokens.mintItem(address, uploaded.path, { gasLimit: 400000 })
+
+		await sleep(delayMS)
 	}
-	console.log("Uploading godzilla...")
-	const uploadedgodzilla = await ipfs.add(JSON.stringify(godzilla))
-
-	console.log("Minting godzilla with IPFS hash (" + uploadedgodzilla.path + ")")
-	await AlphaTokens.mintItem(AlphaTokens.address, uploadedgodzilla.path, { gasLimit: 400000 })
-
-	await sleep(delayMS)
-
-
-	const A = {
-		"description": "A is for Affability",
-		"image": "https://ipfs.io/ipfs/Qmb3WwtmSw4q4omCEtLptNdJUuz6WDQ3DjNPuLxHP4FCvT?filename=A.png",
-		"name": "A",
-	}
-	console.log("Uploading A...")
-	const uploadedA = await ipfs.add(JSON.stringify(A))
-
-	console.log("Minting A with IPFS hash (" + uploadedA.path + ")")
-	await AlphaTokens.mintItem(toAddress, uploadedA.path, { gasLimit: 400000 })
-
-
-	await sleep(delayMS)
-
-
-	const B = {
-		"description": "B is for Bold",
-		"image": "https://ipfs.io/ipfs/QmZNj2mwKh8eZEWbuJNwQiMtMPhG1fN29LMd5UzGPJmsFC?filename=B.png",
-		"name": "B",
-	}
-	console.log("Uploading B...")
-	const uploadedB = await ipfs.add(JSON.stringify(B));
-	console.log("Minting B with IPFS hash (" + uploadedB.path + ")");
-	await AlphaTokens.mintItem(toAddress, uploadedB.path, { gasLimit: 400000 })
-
-	await sleep(delayMS)
-
-	const C = {
-		"description": "C is for Coooool",
-		"image": "https://ipfs.io/ipfs/QmSCWjz3s4UfrQokQADgfv6az8MqUyxipQJPBvhAn7NSEh?filename=C.png",
-		"name": "C",
-	}
-	console.log("Uploading C...")
-	const uploadedC = await ipfs.add(JSON.stringify(C));
-	console.log("Minting C with IPFS hash (" + uploadedB.path + ")");
-	await AlphaTokens.mintItem(toAddress, uploadedC.path, { gasLimit: 400000 })
-
-	await sleep(delayMS)
-
-
-	const D = {
-		"description": "D is for Duuude",
-		"image": "	https://ipfs.io/ipfs/QmV3BGAUzkzy9zCvDmEcoH7W13a83Xhewy7DBTGCXFSqFz?filename=D.png",
-		"name": "D",
-	}
-	console.log("Uploading D...")
-	const uploadedD = await ipfs.add(JSON.stringify(D));
-	console.log("Minting D with IPFS hash (" + uploadedB.path + ")");
-	await AlphaTokens.mintItem(toAddress, uploadedD.path, { gasLimit: 400000 })
-
-	await sleep(delayMS)
-
-
 
 	console.log("Transferring Ownership of AlphaTokens to " + toAddress + "...")
 
@@ -106,13 +40,36 @@ const main = async () => {
 
 	await sleep(delayMS)
 
-	/*
 
 
-	console.log("Minting zebra...")
-	await AlphaTokens.mintItem("0xD75b0609ed51307E13bae0F9394b5f63A7f8b6A1","zebra.jpg")
+	// const godzilla = {
+	// 	"description": "Raaaar!",
+	// 	"external_url": "https://austingriffith.com/portfolio/paintings/",// <-- this can link to a page for the specific file too
+	// 	"image": "https://austingriffith.com/images/paintings/godzilla.jpg",
+	// 	"name": "Godzilla",
+	// 	"attributes": [
+	// 		{
+	// 			"trait_type": "BackgroundColor",
+	// 			"value": "orange"
+	// 		},
+	// 		{
+	// 			"trait_type": "Eyes",
+	// 			"value": "googly"
+	// 		},
+	// 		{
+	// 			"trait_type": "Stamina",
+	// 			"value": 99
+	// 		}
+	// 	]
+	// }
+	// console.log("Uploading godzilla...")
+	// const uploadedgodzilla = await ipfs.add(JSON.stringify(godzilla))
 
-	*/
+	// console.log("Minting godzilla with IPFS hash (" + uploadedgodzilla.path + ")")
+	// await AlphaTokens.mintItem(AlphaTokens.address, uploadedgodzilla.path, { gasLimit: 400000 })
+
+	// await sleep(delayMS)
+
 
 
 	//const secondContract = await deploy("SecondContract")
