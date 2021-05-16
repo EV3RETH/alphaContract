@@ -1,18 +1,18 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import Scaffold from './E-Pages/Scaffold'
+// import Scaffold from './E-Pages/Scaffold'
 import Homepage from "./E-Pages/Homepage/Homepage";
 
-import { ThemeSwitcherProvider } from "react-css-theme-switcher";
+// import { ThemeSwitcherProvider } from "react-css-theme-switcher";
 import './App.css'
 
 
-const prevTheme = window.localStorage.getItem("theme");
-const themes = {
-	dark: `${ process.env.PUBLIC_URL }/dark-theme.css`,
-	light: `${ process.env.PUBLIC_URL }/light-theme.css`,
-};
+// const prevTheme = window.localStorage.getItem("theme");
+// const themes = {
+// 	dark: `${ process.env.PUBLIC_URL }/dark-theme.css`,
+// 	light: `${ process.env.PUBLIC_URL }/light-theme.css`,
+// };
 
 
 export default function App() {
