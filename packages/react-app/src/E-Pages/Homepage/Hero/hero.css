@@ -44,13 +44,15 @@
 
 .title-haze {
 	--haze-margin: -100px;
+	width: 76%;
 	max-width: 1100px;
 	position: absolute;
 	margin-top: var(--haze-margin);
-	animation: wiggle 15s infinite;
+	/* animation: wiggle 15s infinite; */
 	animation-delay: 5s;
 }
 .title-main {
+	width: 70%;
 	max-width: 1000px;
 	margin-bottom: 90px;
 	z-index: 1;
@@ -122,41 +124,20 @@
 		margin-left: 0
 	} 
 }
-/* @keyframes wiggle {
-	0% {
-		margin-top: -70px;
-		margin-left: 0;
+
+@media only screen and (max-width: 1440px) {
+	.button {
+		font-size: 25px;
 	}
-	12% {
-		margin-top: -60px;
-		margin-left: -10px;
+}
+
+@media only screen and (max-width: 800px) {
+	.button {
+		font-size: 20px;
 	}
-	25% {
-		margin-top: -50px;
-		margin-left: -20px;
+}
+@media only screen and (max-width: 500px) {
+	.button {
+		font-size: 15px;
 	}
-	37% {
-		margin-top: -40px;
-		margin-left: -10px;
-	}
-	50% {
-		margin-top: -30px;
-		margin-left: 0;
-	}
-	62% {
-		margin-top: -40px;
-		margin-left: 10px;
-	}
-	75% {
-		margin-top: -50px;
-		margin-left: 20;
-	}
-	87% {
-		margin-top: -60px;
-		margin-left: 10px
-	} 
-	100% {
-		margin-top: -70px;;
-		margin-left: 0;
-	}
-} */
+}
