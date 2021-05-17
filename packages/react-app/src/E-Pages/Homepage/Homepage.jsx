@@ -6,7 +6,7 @@ import MessageBoard from './MessageBoard/MessageBoard'
 
 export default function Homepage() {
 	return (
-		<main className="homepage">
+		<main className="homepage" style={{ height: '100vh' }}>
 			<Hero />
 			<MessageBoard />
 			<Market />

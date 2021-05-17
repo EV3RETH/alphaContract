@@ -4,23 +4,19 @@
 	letter-spacing: 2px;
 	font-size: 30px;
 	text-shadow: 2px 2px 5px gray;
-	/* box-shadow: inset 2px 2px 4px rgba(165, 163, 163, 0.3); */
 	position: relative;
 	padding: 40px 50px;
 	border-radius: 50%;
 	transition: 0.8s;
-	/* background-color: rgba(128, 128, 128, 0.1); */
-	/* background-image: linear-gradient(120deg, rgb(63, 76, 80),rgb(60, 45, 63), rgb(47, 36, 39)); */
+	white-space: nowrap;
 }
 .button:hover {
 	cursor: pointer;
 	transform: scale(1.1);
-	/* background-image: linear-gradient(120deg, rgb(0, 128, 163), rgb(144, 0, 167), rgb(153, 1, 39)); */
 }
 
 .hero-container {
-	height: 100vh;
-	/* background-color: rgba(0, 0, 0, 0.7); */
+	height: 100%;
 	color: white;
 	display: flex;
 	flex-direction: column;
@@ -40,10 +36,12 @@
 	position: fixed;
 	top: 0;
 	left: 0;
+	min-height: 100vh;
 }
 
 .title-haze {
 	--haze-margin: -100px;
+	--move-amount: 1;
 	width: 76%;
 	max-width: 1100px;
 	position: absolute;
@@ -61,7 +59,6 @@
 
 .title-main:hover {
 	cursor: pointer;
-	
 	transform: scale(1.05);
 }
 .title-main:active {
@@ -96,24 +93,24 @@
 		margin-left: 0;
 	}
 	20% {
-		margin-top: calc(var(--haze-margin) + 20px);
-		margin-left: 20px;
+		margin-top: calc(var(--haze-margin) + (20px * var(--move-amount)));
+		margin-left: calc(var(--move-amount) * 20px);
 	}
 	35% {
 		margin-top: var(--haze-margin);
-		margin-left: -20px;
+		margin-left: calc(var(--move-amount) * -20px);
 	}
 	50% {
-		margin-top: calc(var(--haze-margin) - 20px);
-		margin-left: 30px;
+		margin-top: calc(var(--haze-margin) - (20px * var(--move-amount)));
+		margin-left: calc(var(--move-amount) * 30px);
 	}
 	65%{
 		margin-top: var(--haze-margin);
-		margin-left: -30px;
+		margin-left: calc(var(--move-amount) * -30px);
 	}
 	80% {
-		margin-top:calc(var(--haze-margin) + 20px);
-		margin-left: -20px;
+		margin-top: calc(var(--haze-margin) + (20px * var(--move-amount)));
+		margin-left: calc(var(--move-amount) * -20px);
 	}
 	90% {
 		margin-top: var(--haze-margin);
@@ -129,15 +126,25 @@
 	.button {
 		font-size: 25px;
 	}
+	.title-haze {
+		--move-amount: 0.8
+	}
 }
 
 @media only screen and (max-width: 800px) {
 	.button {
 		font-size: 20px;
 	}
+	.title-haze {
+		--move-amount: 0.6
+	}
 }
 @media only screen and (max-width: 500px) {
 	.button {
 		font-size: 15px;
+	}
+	.title-haze {
+		--move-amount: 0.4;
+		--haze-margin: -95px;
 	}
 }
