@@ -144,7 +144,7 @@
 		font-size: 15px;
 	}
 	.title-haze {
-		--move-amount: 0.4;
+		--move-amount: 0.3;
 		--haze-margin: -95px;
 	}
 }

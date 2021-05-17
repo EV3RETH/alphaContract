@@ -3,8 +3,11 @@ import { JsonRpcProvider } from "@ethersproject/providers";
 import './MessageBoard.css'
 import { useContractLoader, useContractReader } from '../../../hooks'
 import { NETWORKS } from '../../../constants';
-import logo from '../../../Images/E.png'
+import A from '../../../Images/A-transparent.png'
 import B from '../../../Images/B-transparent.png'
+
+import E from '../../../Images/E-transparent.png'
+import X from '../../../Images/X-transparent.png'
 
 
 const targetNetwork = NETWORKS['rinkeby']; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
@@ -20,8 +23,11 @@ export default function MessageBoard() {
 	return (
 		<div className="message-board">
 			<div className="message-container">
-				<div>
+				<div className="img-container">
+					<img src={A} alt="" />
 					<img src={B} alt="" />
+					<img src={E} alt="" />
+					<img src={X} alt="" />
 				</div>
 
 				<div>
@@ -30,12 +36,12 @@ export default function MessageBoard() {
 					<p>
 						My genisis set of Non-Fungible Tokens (NFTs).
 						While most of my future works will be audio based, owning one of these tokens proves cryptocraphically that you are indisputedly an original supporter of mine.
-						For that let me give you my deepest thanks in advance ❤️
+						For that let me give you my deepest thanks in advance <span role="img">❤️</span>
 					</p>
 					<h2>What else makes them special?</h2>
 					<p>
 						Every single one of these tokens are unique and will never be minted again.
-						The tokens will live forever on the Ethereum Mainnet and the image assets themselves are hosted on the disributed web via <a href="https://ipfs.io/" target="_blank">IPFS</a> so unlike most tokens yours will be be truly and completely decentralized.
+						The tokens will live forever on the Ethereum Mainnet and the image assets themselves are hosted on the disributed web via <a href="https://ipfs.io/" target="_blank" rel="noopener noreferrer">IPFS</a> so unlike most tokens yours will be be truly and completely decentralized.
 						Alpha Token's smart contract also extends the ERC721 token contract to include additional perks for Alpha Token holders.
 					</p>
 					<h2>More perks you say? Tell me more!</h2>
@@ -51,8 +57,8 @@ export default function MessageBoard() {
 						There are three tiers of token: bronze, silver, and gold.
 						Bronze and Silver starting bids will be priced accordingly.
 						The gold status is considered the most rare and not for sale initially, although they may be sold after they are given away.
-						These are reserved as for lottery winnings, social media incentives, and the "E" token which I will be holding onto myself for the forseable future 🤷
-						</p>
+						These are reserved as for lottery winnings, social media incentives, and the "E" token which I will be holding onto myself for the forseable future <span role="img">🤷</span>
+					</p>
 					<i>
 						Note: in addition to OpenSea's 2.5% seller fee, I have implimented a 7.5% royalty sellers fee that will go to me if you were to sell your token.
 						So when you make your millions selling these tokens down the line you will still be supporting me. Thank you!
