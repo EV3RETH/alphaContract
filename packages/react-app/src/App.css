@@ -3,6 +3,7 @@ body {
 		background-color: black;
 		color: skyblue;
 		font-size: 16px;
+		box-sizing: border-box;
 }
 
 a {
