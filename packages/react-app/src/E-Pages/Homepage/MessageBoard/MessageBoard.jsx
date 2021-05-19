@@ -10,7 +10,7 @@ import E from '../../../Images/E-transparent.png'
 import X from '../../../Images/X-transparent.png'
 
 
-const targetNetwork = NETWORKS['rinkeby']; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+const targetNetwork = NETWORKS.localhost; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 const localProviderUrl = targetNetwork.rpcUrl;
 const localProviderUrlFromEnv = process.env.REACT_APP_PROVIDER ? process.env.REACT_APP_PROVIDER : localProviderUrl;
 const localProvider = new JsonRpcProvider(localProviderUrlFromEnv);
@@ -19,11 +19,14 @@ export default function MessageBoard() {
 	const [open, setOpen] = useState(false)
 
 	const readContracts = useContractLoader(localProvider)
-	const winner = useContractReader(readContracts, "AlphaTokens", "whoGetsTheX")
+	const _winner = useContractReader(readContracts, "AlphaTokens", "whoGetsTheX")
+	const winner = _winner === "0x0000000000000000000000000000000000000000" ? null : _winner
 	const remaining = parseInt(useContractReader(readContracts, "AlphaTokens", "remaining")) - 13 || 10
-	const pool = useContractReader(readContracts, "AlphaTokens", "addressPool")
+	const _pool = useContractReader(readContracts, "AlphaTokens", "getAddressPool")
+	const pool = _pool?.length ? _pool.map(address => <li>{address}</li>) : <li>You could be the first!</li>
 
 	function togglePool() {
+		console.log(pool)
 		setOpen(prev => !prev)
 	}
 	return (
@@ -53,7 +56,7 @@ export default function MessageBoard() {
 					<h2>More perks you say? Tell me more!</h2>
 					<p>
 						Every time an Alpha Token is sold or traded the new holder's wallet address is stored on chain in the contract's "address pool".
-						After 10 tokens have been sold AlphaTokens smart contract (which can be verified <a>here</a>) will automaticall choose a winner from this pool and send them the "X" token. After this happens the pool will close.
+						After 10 tokens have been sold AlphaToken's smart contract (which can be verified <a>here</a>) will automatically choose a winner from this pool and send them the "X" token. After this happens the pool will close.
 					</p>
 					<h2>What varieties are there?</h2>
 					<p>
@@ -75,7 +78,7 @@ export default function MessageBoard() {
 					</button>
 					<div className={`pool${ open ? " open" : "" }`}>
 						<button onClick={togglePool}>X</button>
-						<p>{pool}</p>
+						<ul className="pool-body">{pool}</ul>
 					</div>
 
 					{winner

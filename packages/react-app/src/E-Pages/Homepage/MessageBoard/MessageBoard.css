@@ -44,7 +44,6 @@ span[role="img"] {
 .img-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	/* grid-template-rows: max-content; */
 	align-items: center;
 }
 
@@ -69,9 +68,9 @@ span[role="img"] {
 .pool {
 	display: none;
 	position: relative;
-	max-width: 300px;
+	max-width: 440px;
 	margin: 10px auto;
-	padding: 10px;
+	padding: 30px 20px 0px;
 	border-radius: 10px;
 	box-shadow: inset 1px 1px 5px 3px black;
 	border: 1px solid skyblue;
@@ -85,6 +84,19 @@ span[role="img"] {
 .pool.open {
 	display: block;
 }
+.pool-body {
+	list-style: none;
+	padding: 0;
+	color: silver;
+	/* overflow-x: scroll; */
+	
+}
+.pool-body li {
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 
 
 @media only screen and (max-width: 1150px) {

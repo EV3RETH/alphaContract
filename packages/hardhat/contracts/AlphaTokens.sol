@@ -54,7 +54,10 @@ contract AlphaTokens is ERC721, Ownable {
 	}
 
 	function getUnsold() public returns(uint) {
-		return balanceOf(owner());
+		uint unsold = balanceOf(owner());
+		if(ownerOf(25) == owner()) unsold--;
+		if(ownerOf(26) == owner()) unsold--;
+		return unsold;
 	}
 
 	//Open Sea required functions

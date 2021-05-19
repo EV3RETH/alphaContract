@@ -259,7 +259,7 @@ function App(props) {
 	const faucetAvailable = localProvider && localProvider.connection && localProvider.connection.url && localProvider.connection.url.indexOf(window.location.hostname) >= 0 && !process.env.REACT_APP_PROVIDER && price > 1;
 
 	const [faucetClicked, setFaucetClicked] = useState(false);
-	if (!faucetClicked && localProvider && localProvider._network && localProvider._network.chainId === 31337 && yourLocalBalance && formatEther(yourLocalBalance) <= 0) {
+	if (localProvider && localProvider._network && localProvider._network.chainId === 31337 && yourLocalBalance && formatEther(yourLocalBalance) <= 30) {
 		faucetHint = (
 			<div style={{ padding: 16 }}>
 				<Button type={"primary"} onClick={() => {
@@ -321,7 +321,7 @@ function App(props) {
             */}
 
 						<div style={{ width: 640, margin: "auto", marginTop: 32, paddingBottom: 32 }}>
-							<List
+							{/* <List
 								bordered
 								dataSource={alphaTokens || []}
 								renderItem={async (item) => {
@@ -366,7 +366,7 @@ function App(props) {
 										</List.Item>
 									)
 								}}
-							/>
+							/> */}
 						</div>
 
 					</Route>
