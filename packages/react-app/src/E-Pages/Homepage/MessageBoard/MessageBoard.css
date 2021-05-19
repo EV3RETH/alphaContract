@@ -1,3 +1,26 @@
+img {
+	width: 100%;
+}
+h1 {
+	text-shadow: 3px 3px 3px gray;
+}
+strong {
+	display: block;
+	margin: 40px 0 20px;
+}
+strong i {
+	font-size: 20px;
+	color: aliceblue;
+}
+span[role="img"] {
+	font-style: normal;
+}
+.disclaimer {
+	display: block;
+	grid-column: 1 / span 2;
+	text-align: center;
+	font-size: 12px;
+}
 .message-board {
 	box-sizing: border-box;
 	padding: 100px;
@@ -21,10 +44,8 @@
 .img-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: min-content;
-}
-img {
-	width: 100%;
+	/* grid-template-rows: max-content; */
+	align-items: center;
 }
 
 .winner {
@@ -41,4 +62,44 @@ img {
 	background: transparent;
 	text-shadow: inherit;
 	cursor: pointer;
+	display: block;
+	margin: 20px auto;
+}
+
+.pool {
+	display: none;
+	position: relative;
+	max-width: 300px;
+	margin: 10px auto;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: inset 1px 1px 5px 3px black;
+	border: 1px solid skyblue;
+}
+.pool button {
+	position: absolute;
+	margin: 0;
+	right: 6px;
+	top: 6px;
+}
+.pool.open {
+	display: block;
+}
+
+
+@media only screen and (max-width: 1150px) {
+	.img-container {
+		grid-template-columns: 1fr;
+	}
+	.message-board {
+		padding: 50px
+	}
+}
+@media only screen and (max-width: 800px) {
+	.message-board {
+		padding: 25px
+	}
+	.message-container {
+		gap: 15px
+	}
 }

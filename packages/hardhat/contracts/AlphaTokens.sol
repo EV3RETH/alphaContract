@@ -22,6 +22,7 @@ contract AlphaTokens is ERC721, Ownable {
 
 	address[] public addressPool;
 	address public whoGetsTheX = address(0);
+	uint public remaining = 23;
 
 
   constructor(address _proxyRegistryAddress) public ERC721("AlphaTokens", "α") {
@@ -45,7 +46,8 @@ contract AlphaTokens is ERC721, Ownable {
 		super.transferFrom(from, to, tokenId);
 		if(whoGetsTheX == address(0)) {
 			addressPool.push(to);
-			if(getUnsold() == 13) { 
+			remaining = getUnsold();
+			if(remaining == 13) { 
 				chooseLotteryWinner();
 			} 
 		}
