@@ -15,6 +15,8 @@ const localProviderUrl = targetNetwork.rpcUrl;
 const localProviderUrlFromEnv = process.env.REACT_APP_PROVIDER ? process.env.REACT_APP_PROVIDER : localProviderUrl;
 const localProvider = new JsonRpcProvider(localProviderUrlFromEnv);
 
+const verifiedContract = "https://rinkeby.etherscan.io/address/0x9b85f888BcF0C950d8FaB77Ea80c3C52048557Da#code"
+
 export default function MessageBoard() {
 	const [open, setOpen] = useState(false)
 
@@ -56,7 +58,7 @@ export default function MessageBoard() {
 					<h2>More perks you say? Tell me more!</h2>
 					<p>
 						Every time an Alpha Token is sold or traded the new holder's wallet address is stored on chain in the contract's "address pool".
-						After 10 tokens have been sold AlphaToken's smart contract (which can be verified <a>here</a>) will automatically choose a winner from this pool and send them the "X" token. After this happens the pool will close.
+						After 10 tokens have been sold AlphaToken's smart contract (which can be verified <a href={verifiedContract} target="_blank" rel="noopener noreferrer">here</a>) will automatically choose a winner from this pool and send them the "X" token. After this happens the pool will close.
 					</p>
 					<h2>What varieties are there?</h2>
 					<p>
