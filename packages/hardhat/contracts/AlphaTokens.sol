@@ -60,43 +60,6 @@ contract AlphaTokens is ERC721, Ownable {
 		return unsold;
 	}
 
-	//Open Sea required functions
-	// function isApprovedForAll(address owner, address operator) public view override returns(bool) {
-	// 	// Whitelist OpenSea proxy contract for easy trading.
-  //       ProxyRegistry proxyRegistry = ProxyRegistry(proxyRegistryAddress);
-  //       if (address(proxyRegistry.proxies(owner)) == operator) {
-  //           return true;
-  //       }
-
-  //       return super.isApprovedForAll(owner, operator);
-	// }
-	// function approve(address to, uint256 tokenId) public virtual override {
-  //       address owner = ERC721.ownerOf(tokenId);
-  //       require(to != owner, "ERC721: approval to current owner");
-
-  //       require(_msgSender() == owner || isApprovedForAll(owner, _msgSender()),
-  //           "ERC721: approve caller is not owner nor approved for all"
-  //       );
-
-  //       _approve(to, tokenId);
-  //   }
-
-  //   /**
-  //    * Override _isApprovedOrOwner as the OZ version does not respect an overriden isApprovedForAll method.
-  //    */
-  //   function _isApprovedOrOwner(address spender, uint256 tokenId) internal view virtual override returns (bool) {
-  //       return isApprovedForAll(ownerOf(tokenId), spender)
-  //           || super._isApprovedOrOwner(spender, tokenId);
-  //   }
-
-//TODO: do I need this?
-		// //for OpenSea minting, use _setTokenURI later to assign metadata
-	// function mintTo(address _to) public onlyOwner {
-	// 	_tokenIds.increment();
-	// 	uint256 id = _tokenIds.current();
-	// 	_mint(_to, id);
-	// }
-
 	function random() private returns(uint8) {
 		return uint8(uint256(keccak256(abi.encodePacked(block.timestamp, msg.sender, blockhash(block.number - 1))))%251);
 	}
@@ -127,8 +90,6 @@ contract AlphaTokens is ERC721, Ownable {
   }
 
 
-
-
 	//TODO: DEV ONLY. !!!!!!DELETE THIS BEFORE MAINNET!!!!!
 	function addToAddressPool(address to) public onlyOwner {
 		addressPool.push(to);
@@ -138,4 +99,41 @@ contract AlphaTokens is ERC721, Ownable {
 		_transfer(from, address(this), 24);
 		delete whoGetsTheX;
 	}
+
+	// //Open Sea required functions
+	function isApprovedForAll(address owner, address operator) public view override returns(bool) {
+		// Whitelist OpenSea proxy contract for easy trading.
+        ProxyRegistry proxyRegistry = ProxyRegistry(proxyRegistryAddress);
+        if (address(proxyRegistry.proxies(owner)) == operator) {
+            return true;
+        }
+
+        return super.isApprovedForAll(owner, operator);
+	}
+	function approve(address to, uint256 tokenId) public virtual override {
+        address owner = ERC721.ownerOf(tokenId);
+        require(to != owner, "ERC721: approval to current owner");
+
+        require(_msgSender() == owner || isApprovedForAll(owner, _msgSender()),
+            "ERC721: approve caller is not owner nor approved for all"
+        );
+
+        _approve(to, tokenId);
+    }
+
+	/**
+		* Override _isApprovedOrOwner as the OZ version does not respect an overriden isApprovedForAll method.
+		*/
+	function _isApprovedOrOwner(address spender, uint256 tokenId) internal view virtual override returns (bool) {
+			return isApprovedForAll(ownerOf(tokenId), spender)
+					|| super._isApprovedOrOwner(spender, tokenId);
+	}
+
+//TODO: do I need this?
+		// //for OpenSea minting, use _setTokenURI later to assign metadata
+	// function mintTo(address _to) public onlyOwner {
+	// 	_tokenIds.increment();
+	// 	uint256 id = _tokenIds.current();
+	// 	_mint(_to, id);
+	// }
 }
