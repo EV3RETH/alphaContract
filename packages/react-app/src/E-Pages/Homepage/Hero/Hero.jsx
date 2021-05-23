@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './hero.css'
-import grid from '../../../Images/swirly-grid-haze.png'
-import starz from '../../../Images/new-stars.png'
-import titlePlain from '../../../Images/ev3reth-plain.png'
-import titleHaze from '../../../Images/ev3reth-color-haze.png'
 import Waves from '../Waves'
+const grid = "https://gateway.pinata.cloud/ipfs/QmSud48CL14Mk5XgTSRQS2YKTTsqcpc83kjzwRCxJ3gpA7/swirly-grid-haze.png";
+const starz = "https://gateway.pinata.cloud/ipfs/QmSud48CL14Mk5XgTSRQS2YKTTsqcpc83kjzwRCxJ3gpA7/new-stars.png"
+const titlePlain = "https://gateway.pinata.cloud/ipfs/QmSud48CL14Mk5XgTSRQS2YKTTsqcpc83kjzwRCxJ3gpA7/Evereth-plain.png"
+const titleHaze = "https://gateway.pinata.cloud/ipfs/QmSud48CL14Mk5XgTSRQS2YKTTsqcpc83kjzwRCxJ3gpA7/evereth%20color%20haze.png"
 
 export default function Hero() {
 	const [wavesOn, setWavesOn] = useState(false)

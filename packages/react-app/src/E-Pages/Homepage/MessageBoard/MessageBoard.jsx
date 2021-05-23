@@ -3,11 +3,11 @@ import { JsonRpcProvider } from "@ethersproject/providers";
 import './MessageBoard.css'
 import { useContractLoader, useContractReader } from '../../../hooks'
 import { NETWORKS } from '../../../constants';
-import A from '../../../Images/A-transparent.png'
-import B from '../../../Images/B-transparent.png'
+const A = "https://gateway.pinata.cloud/ipfs/QmcuNKRSXHZQCN7L9K9UUQQF3z35xqnTjQpTaB7skroDeW/A-transparent.png"
+const B = "https://gateway.pinata.cloud/ipfs/QmcuNKRSXHZQCN7L9K9UUQQF3z35xqnTjQpTaB7skroDeW/B-transparent.png"
 
-import E from '../../../Images/E-transparent.png'
-import X from '../../../Images/X-transparent.png'
+const E = "https://gateway.pinata.cloud/ipfs/QmcuNKRSXHZQCN7L9K9UUQQF3z35xqnTjQpTaB7skroDeW/E-transparent.png"
+const X = "https://gateway.pinata.cloud/ipfs/QmcuNKRSXHZQCN7L9K9UUQQF3z35xqnTjQpTaB7skroDeW/B-transparent.png"
 
 
 const targetNetwork = NETWORKS.rinkeby; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
@@ -28,7 +28,6 @@ export default function MessageBoard() {
 	const pool = _pool?.length ? _pool.map(address => <li>{address}</li>) : <li>You could be the first!</li>
 
 	function togglePool() {
-		console.log(pool)
 		setOpen(prev => !prev)
 	}
 	return (
