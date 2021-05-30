@@ -5,7 +5,9 @@ const { config, ethers, tenderly, run } = require("hardhat");
 const { utils } = require("ethers");
 const R = require("ramda");
 
+//CHANGE NETWORK HERE
 const NETWORK = 'rinkeby'
+// const NETWORK = 'localhost'
 
 const main = async () => {
 
@@ -55,22 +57,23 @@ const main = async () => {
 	*/
 
 
-	//If you want to verify your contract on tenderly.co (see setup details in the scaffold-eth README!)
-	await sleep(4000)
-	await tenderlyVerify(
-		{
-			contractName: "AlphaTokens",
-			contractAddress: AlphaTokens.address
+	if (NETWORK !== "localhost") {
+		//If you want to verify your contract on tenderly.co (see setup details in the scaffold-eth README!)
+		await sleep(4000)
+		await tenderlyVerify(
+			{
+				contractName: "AlphaTokens",
+				contractAddress: AlphaTokens.address
+			})
+
+
+		// If you want to verify your contract on etherscan
+		console.log(chalk.blue('verifying on etherscan'))
+		await run("verify:verify", {
+			address: AlphaTokens.address,
+			constructorArguments: [proxyRegistryAddress] // If your contract has constructor arguments, you can pass them as an array
 		})
-
-
-	// If you want to verify your contract on etherscan
-
-	console.log(chalk.blue('verifying on etherscan'))
-	await run("verify:verify", {
-		address: AlphaTokens.address,
-		constructorArguments: [proxyRegistryAddress] // If your contract has constructor arguments, you can pass them as an array
-	})
+	}
 
 
 	console.log(

@@ -41,6 +41,7 @@ const ipfs = ipfsAPI({ host: 'ipfs.infura.io', port: '5001', protocol: 'https' }
 
 
 /// 📡 What chain are your contracts deployed to?
+//CHANGE NETWORK HERE
 const targetNetwork = NETWORKS.rinkeby; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging

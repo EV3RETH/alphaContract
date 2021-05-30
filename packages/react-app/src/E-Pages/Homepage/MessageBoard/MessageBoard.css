@@ -40,7 +40,17 @@ span[role="img"] {
 	grid-template-columns: 1fr 1fr;
 	gap: 30px;
 }
+.main-header {
+	grid-column: 1 / span 2;
+	text-align: center;
+	font-size: 50px;
+	color: seashell;
+	text-shadow: 4px 4px 4px rgba(135, 207, 235, 0.5);
 
+	width: 70%;
+	margin: 0 auto 30px;
+	border-bottom: 4px double silver;
+}
 .img-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;

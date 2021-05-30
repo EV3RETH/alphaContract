@@ -13,6 +13,7 @@ const tokens = require('./tokens')
 const main = async () => {
 
 	// ADDRESS TO MINT TO:
+	//CHANGE NETWORK HERE
 	const toAddress = "0xb40467523e737edC69d0f783C1D86bd27EEC2759" //rinkby
 	// const toAddress = "0x053BFA7ff001a4c2bCC7B990d4dE6ec0e4C39366" //local host
 

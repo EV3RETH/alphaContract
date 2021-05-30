@@ -3,14 +3,15 @@ import { JsonRpcProvider } from "@ethersproject/providers";
 import './MessageBoard.css'
 import { useContractLoader, useContractReader } from '../../../hooks'
 import { NETWORKS } from '../../../constants';
-const A = "https://gateway.pinata.cloud/ipfs/QmcuNKRSXHZQCN7L9K9UUQQF3z35xqnTjQpTaB7skroDeW/A-transparent.png"
-const B = "https://gateway.pinata.cloud/ipfs/QmcuNKRSXHZQCN7L9K9UUQQF3z35xqnTjQpTaB7skroDeW/B-transparent.png"
+import A from "../../../assets/A-transparent.png"
+import B from "../../../assets/B-transparent.png"
+import X from "../../../assets/X-transparent.png"
+import E from "../../../assets/E-transparent.png"
 
-const E = "https://gateway.pinata.cloud/ipfs/QmcuNKRSXHZQCN7L9K9UUQQF3z35xqnTjQpTaB7skroDeW/E-transparent.png"
-const X = "https://gateway.pinata.cloud/ipfs/QmcuNKRSXHZQCN7L9K9UUQQF3z35xqnTjQpTaB7skroDeW/B-transparent.png"
 
-
+//CHANGE NETWORK HERE
 const targetNetwork = NETWORKS.rinkeby; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+// const targetNetwork = NETWORKS.localhost
 const localProviderUrl = targetNetwork.rpcUrl;
 const localProviderUrlFromEnv = process.env.REACT_APP_PROVIDER ? process.env.REACT_APP_PROVIDER : localProviderUrl;
 const localProvider = new JsonRpcProvider(localProviderUrlFromEnv);
@@ -33,6 +34,8 @@ export default function MessageBoard() {
 	return (
 		<div className="message-board">
 			<div className="message-container">
+				<h1 className="main-header">What's out Now</h1>
+
 				<div className="img-container">
 					<img src={A} alt="" />
 					<img src={B} alt="" />
@@ -41,11 +44,11 @@ export default function MessageBoard() {
 				</div>
 
 				<div>
-					<i>Highlighted NFT set</i>
+					<script src="https://unpkg.com/embeddable-nfts/dist/nft-card.min.js"></script>
 					<h1>Alpha Tokens</h1>
 					<p>
 						My genisis set of Non-Fungible Tokens (NFTs).
-						Owning one of these tokens proves thoguth cryptography that you are indisputedly an original supporter of mine.
+						Owning one of these tokens proves cryptographically that you are indisputedly an original supporter of mine.
 						For that let me give you my deepest thanks in advance <span role="img">❤️</span>
 					</p>
 					<h2>What else makes them special?</h2>
