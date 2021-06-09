@@ -13,7 +13,7 @@ function getRndInteger(min, max) {
 const getTokenIPFSuri = (tokenName) => `https://ipfs.io/ipfs/QmcuNKRSXHZQCN7L9K9UUQQF3z35xqnTjQpTaB7skroDeW/${ tokenName }-transparent.png`
 const tokens = [
 	{
-		"description": "First letter in the Alphabet",
+		"description": "#1 It's the first letter in the Alphabet",
 		"image": getTokenIPFSuri("A"),
 		"external_url": thisIsMyWebsite,
 		"name": "A",
@@ -29,7 +29,7 @@ const tokens = [
 		]
 	},
 	{
-		"description": "Second letter in the Alphabet",
+		"description": "#2 Second place is still good!",
 		"image": getTokenIPFSuri("B"),
 		"external_url": thisIsMyWebsite,
 		"name": "B",
@@ -45,7 +45,7 @@ const tokens = [
 		]
 	},
 	{
-		"description": "3rd letter in the Alphabet",
+		"description": "#3 Still on the podium!",
 		"image": getTokenIPFSuri("C"),
 		"external_url": thisIsMyWebsite,
 		"name": "C",
@@ -61,7 +61,7 @@ const tokens = [
 		]
 	},
 	{
-		"description": "I promise it's a D and not just a flipped C, well I guess its both...",
+		"description": "#4 I promise it's a D and not just a flipped C, well I guess its both...",
 		"image": getTokenIPFSuri("D"),
 		"external_url": thisIsMyWebsite,
 		"name": "D",
@@ -125,7 +125,7 @@ const tokens = [
 		]
 	},
 	{
-		"description": "8, thats twice as big as D",
+		"description": "#8 Thats twice as big as D",
 		"image": getTokenIPFSuri("H"),
 		"external_url": thisIsMyWebsite,
 		"name": "H",
@@ -141,7 +141,7 @@ const tokens = [
 		]
 	},
 	{
-		"description": "Nine times, its more than a line",
+		"description": "#9 Nine times, its more than a line",
 		"image": getTokenIPFSuri("I"),
 		"external_url": thisIsMyWebsite,
 		"name": "I",
@@ -157,7 +157,7 @@ const tokens = [
 		]
 	},
 	{
-		"description": "Double digits!!!",
+		"description": "#10 Double digits!!!",
 		"image": getTokenIPFSuri("J"),
 		"external_url": thisIsMyWebsite,
 		"name": "J",
@@ -173,7 +173,7 @@ const tokens = [
 		]
 	},
 	{
-		"description": "Two ones",
+		"description": "#11 Two ones",
 		"image": getTokenIPFSuri("K"),
 		"external_url": thisIsMyWebsite,
 		"name": "K",
@@ -189,7 +189,7 @@ const tokens = [
 		]
 	},
 	{
-		"description": "Twelve, it's another holy one baby",
+		"description": "#12 It's another holy one",
 		"image": getTokenIPFSuri("L"),
 		"external_url": thisIsMyWebsite,
 		"name": "L",
@@ -317,7 +317,7 @@ const tokens = [
 		]
 	},
 	{
-		"description": "20 double digits times two",
+		"description": "#20 Double digits times two",
 		"image": getTokenIPFSuri("T"),
 		"external_url": thisIsMyWebsite,
 		"name": "T",
@@ -333,7 +333,7 @@ const tokens = [
 		]
 	},
 	{
-		"description": "21, it's drinking time!",
+		"description": "Twenty-one, it's drinking time!",
 		"image": getTokenIPFSuri("U"),
 		"external_url": thisIsMyWebsite,
 		"name": "U",
@@ -349,7 +349,7 @@ const tokens = [
 		]
 	},
 	{
-		"description": "Double two baby",
+		"description": "#22 Double two baby",
 		"image": getTokenIPFSuri("V"),
 		"external_url": thisIsMyWebsite,
 		"name": "V",
@@ -365,7 +365,7 @@ const tokens = [
 		]
 	},
 	{
-		"description": "Number 23, that double U",
+		"description": "Number 23, that's double U",
 		"image": getTokenIPFSuri("W"),
 		"external_url": thisIsMyWebsite,
 		"name": "W",
@@ -381,7 +381,7 @@ const tokens = [
 		]
 	},
 	{
-		"description": "One third of that porn rating",
+		"description": "#24 One third of that porn rating",
 		"image": getTokenIPFSuri("X"),
 		"external_url": thisIsMyWebsite,
 		"name": "X",
@@ -397,7 +397,7 @@ const tokens = [
 		]
 	},
 	{
-		"description": "Penultimate...",
+		"description": "#25 Penultimate...",
 		"image": getTokenIPFSuri("Y"),
 		"external_url": thisIsMyWebsite,
 		"name": "Y",

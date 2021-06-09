@@ -1,12 +1,9 @@
 pragma solidity >=0.6.0 <0.7.0;
 //SPDX-License-Identifier: MIT
 
-import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-
-// GET LISTED ON OPENSEA: https://testnets.opensea.io/get-listed/step-two
 
 contract OwnableDelegateProxy {}
 
@@ -30,25 +27,13 @@ contract AlphaTokens is ERC721, Ownable {
 		proxyRegistryAddress = _proxyRegistryAddress;
   }
 
-	//OVERRIDES
-	// function safeTransferFrom(address from, address to, uint256 tokenId) public override(ERC721) {
-	// 	super.safeTransferFrom(from, to, tokenId);
-	// 	if(lottoOpen) {
-	// 		if(addressPool.length == 23) {
-	// 			chooseLottoWinner();
-	// 		} else {
-	// 			addressPool.push(to);
-	// 		}
-	// 	}
-	// }
-
 	function transferFrom(address from, address to, uint256 tokenId) public override(ERC721) {
 		super.transferFrom(from, to, tokenId);
 		if(whoGetsTheX == address(0)) {
 			addressPool.push(to);
 			remaining = getUnsold();
 			if(remaining == 13) { 
-				chooseLotteryWinner();
+				chooseXWinner();
 			} 
 		}
 	}
@@ -64,7 +49,7 @@ contract AlphaTokens is ERC721, Ownable {
 		return uint8(uint256(keccak256(abi.encodePacked(block.timestamp, msg.sender, blockhash(block.number - 1))))%251);
 	}
 
-	function chooseLotteryWinner() public {
+	function chooseXWinner() public {
 		require(whoGetsTheX == address(0), "The X is not here anymore");
 		uint randomIndex = random() % addressPool.length;
 		_transfer(address(this), addressPool[randomIndex], 24);
@@ -88,17 +73,6 @@ contract AlphaTokens is ERC721, Ownable {
 
       return id;
   }
-
-
-	//TODO: DEV ONLY. !!!!!!DELETE THIS BEFORE MAINNET!!!!!
-	function addToAddressPool(address to) public onlyOwner {
-		addressPool.push(to);
-	}
-
-	function resetLottery(address from) public onlyOwner {
-		_transfer(from, address(this), 24);
-		delete whoGetsTheX;
-	}
 
 	// //Open Sea required functions
 	function isApprovedForAll(address owner, address operator) public view override returns(bool) {
@@ -128,12 +102,4 @@ contract AlphaTokens is ERC721, Ownable {
 			return isApprovedForAll(ownerOf(tokenId), spender)
 					|| super._isApprovedOrOwner(spender, tokenId);
 	}
-
-//TODO: do I need this?
-		// //for OpenSea minting, use _setTokenURI later to assign metadata
-	// function mintTo(address _to) public onlyOwner {
-	// 	_tokenIds.increment();
-	// 	uint256 id = _tokenIds.current();
-	// 	_mint(_to, id);
-	// }
 }
