@@ -1,0 +1,48 @@
+.market-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 140px 30px 50px;
+	margin: 0 auto;
+	height: 100%;
+}
+.market-message {
+	width: 50%;
+	text-align: center;
+}
+.loading-title {
+	position: absolute;
+	top: 40vh
+}
+#opensea-iframe {
+	z-index: 2;
+	height: 100%;
+	width: 80vw;
+	max-width: 1440px;
+	margin-top: 30px;
+	filter: brightness(0.8);
+}
+#opensea-iframe.loaded {
+	filter: none;
+	box-shadow: 1px 1px 15px 5px gray;
+}
+
+@keyframes hueRotate {
+	from {
+		filter: hue-rotate(0deg) brightness(0.7) ;
+
+	}
+	to {
+		filter: hue-rotate(360deg) brightness(0.7);
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.market-container {
+		padding: 30px;
+	}
+	#opensea-iframe {
+		width: 100%;
+	}
+}

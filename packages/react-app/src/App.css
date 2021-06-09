@@ -1,9 +1,18 @@
+@import './variables.css';
+html {
+	height: 100%;
+}
 body {
-		font-family: Roboto, sans-serif;
+		font-family: var(--body-font);
 		background-color: black;
 		color: skyblue;
 		font-size: 16px;
 		box-sizing: border-box;
+		height: 100%;
+		margin: 0;
+}
+#root {
+	height: 100%;
 }
 
 a {
@@ -13,7 +22,7 @@ a {
 
 h1 {
 	color: seashell;
-	font-family: 'Zen Dots', cursive;
+	font-family: var(--heading-font);
 	font-size: 40px;
 }
 h2 {
@@ -35,4 +44,25 @@ button {
 strong {
 	font-size: 18px;
 	color: aliceblue;
+}
+
+main {
+	height: 100%;
+}
+
+.starz {
+	z-index: -1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-height: 100%;
+	min-width: 1200px;
+}
+
+#c {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	filter: blur(4px) brightness(0.5);
 }

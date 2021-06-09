@@ -1,12 +1,9 @@
 pragma solidity >=0.6.0 <0.7.0;
 //SPDX-License-Identifier: MIT
 
-import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-
-// GET LISTED ON OPENSEA: https://testnets.opensea.io/get-listed/step-two
 
 contract OwnableDelegateProxy {}
 
@@ -76,17 +73,6 @@ contract AlphaTokens is ERC721, Ownable {
 
       return id;
   }
-
-
-	//TODO: DEV ONLY. !!!!!!DELETE THIS BEFORE MAINNET!!!!!
-	function addToAddressPool(address to) public onlyOwner {
-		addressPool.push(to);
-	}
-
-	function resetLottery(address from) public onlyOwner {
-		_transfer(from, address(this), 24);
-		delete whoGetsTheX;
-	}
 
 	// //Open Sea required functions
 	function isApprovedForAll(address owner, address operator) public view override returns(bool) {

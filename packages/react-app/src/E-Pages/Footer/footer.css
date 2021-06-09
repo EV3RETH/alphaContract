@@ -1,0 +1,20 @@
+
+footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: linear-gradient(180deg, rgba(63, 76, 80, 0.9),rgba(60, 45, 63, 0.9), rgba(47, 36, 39, 0.9));
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
+	padding: 15px 40px
+}
+footer p {
+	margin: 0;
+}
+footer a img{
+	width: 24px;
+	margin-left: 25px;
+}
+
+.socials {
+
+}
