@@ -1,0 +1,151 @@
+.button {
+	font-family: "Zen Dots";
+	color: seashell;
+	letter-spacing: 2px;
+	font-size: 30px;
+	text-shadow: 2px 2px 5px gray;
+	position: relative;
+	padding: 40px 50px;
+	border-radius: 50%;
+	transition: 0.8s;
+	white-space: nowrap;
+}
+.button:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.hero-container {
+	height: 100%;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.grid-bg {
+	width: 100vw;
+	max-height: 20vw;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.starz {
+	z-index: -1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-height: 100vh;
+	min-width: 1000px;
+}
+
+.title-haze {
+	--haze-margin: -100px;
+	--move-amount: 1;
+	width: 76%;
+	max-width: 1100px;
+	position: absolute;
+	margin-top: var(--haze-margin);
+	animation: wiggle 15s infinite;
+	animation-delay: 5s;
+}
+.title-main {
+	width: 70%;
+	max-width: 1000px;
+	margin-bottom: 90px;
+	z-index: 1;
+	transition: 0.7s;
+}
+
+.title-main:hover {
+	cursor: pointer;
+	transform: scale(1.05);
+}
+.title-main:active {
+	transform: scale(1) translate(5px, 5px);
+}
+.title-main.on {
+	filter: invert()
+}
+#c {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	filter: blur(4px) brightness(0.5);
+}
+
+/* @keyframes buttonHover {
+	from {	
+		background-image: linear-gradient(120deg, rgb(63, 76, 80),rgb(60, 45, 63), rgb(47, 36, 39));
+	}
+	to{ 
+		background-image: linear-gradient(120deg, rgb(0, 128, 163), rgb(144, 0, 167), rgb(153, 1, 39));
+	}
+} */
+@keyframes wiggle {
+	0% {
+		margin-top: var(--haze-margin);
+		margin-left: 0;
+	}
+	10% {
+		margin-top: var(--haze-margin);
+		margin-left: 0;
+	}
+	20% {
+		margin-top: calc(var(--haze-margin) + (20px * var(--move-amount)));
+		margin-left: calc(var(--move-amount) * 20px);
+	}
+	35% {
+		margin-top: var(--haze-margin);
+		margin-left: calc(var(--move-amount) * -20px);
+	}
+	50% {
+		margin-top: calc(var(--haze-margin) - (20px * var(--move-amount)));
+		margin-left: calc(var(--move-amount) * 30px);
+	}
+	65%{
+		margin-top: var(--haze-margin);
+		margin-left: calc(var(--move-amount) * -30px);
+	}
+	80% {
+		margin-top: calc(var(--haze-margin) + (20px * var(--move-amount)));
+		margin-left: calc(var(--move-amount) * -20px);
+	}
+	90% {
+		margin-top: var(--haze-margin);
+		margin-left: 0;
+	}
+	100% {
+		margin-top: var(--haze-margin);
+		margin-left: 0
+	} 
+}
+
+@media only screen and (max-width: 1440px) {
+	.button {
+		font-size: 25px;
+	}
+	.title-haze {
+		--move-amount: 0.8
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.button {
+		font-size: 20px;
+	}
+	.title-haze {
+		--move-amount: 0.6
+	}
+}
+@media only screen and (max-width: 500px) {
+	.button {
+		font-size: 15px;
+	}
+	.title-haze {
+		--move-amount: 0.3;
+		--haze-margin: -95px;
+	}
+}
