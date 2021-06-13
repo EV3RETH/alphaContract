@@ -11,7 +11,6 @@ import Footer from './E-Pages/Footer/Footer';
 
 // import { ThemeSwitcherProvider } from "react-css-theme-switcher";
 // import Scaffold from './E-Pages/Scaffold'
-
 // const prevTheme = window.localStorage.getItem("theme");
 // const themes = {
 // 	dark: `${ process.env.PUBLIC_URL }/dark-theme.css`,
@@ -36,7 +35,7 @@ export default function App(props) {
 				<Switch>
 					{/* <Route exact path="/scaffold">
 						<ThemeSwitcherProvider themeMap={themes} defaultTheme={prevTheme ? prevTheme : "dark"}>
-							<Scaffold ...props/>
+							<Scaffold />
 						</ThemeSwitcherProvider>
 					</Route> */}
 					<Route path={PATHS.MessageBoard}>

@@ -12,6 +12,7 @@ import E from "../../../assets/E-transparent.png"
 //CHANGE NETWORK HERE
 const targetNetwork = NETWORKS.rinkeby; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 // const targetNetwork = NETWORKS.localhost
+
 const localProviderUrl = targetNetwork.rpcUrl;
 const localProviderUrlFromEnv = process.env.REACT_APP_PROVIDER ? process.env.REACT_APP_PROVIDER : localProviderUrl;
 const localProvider = new JsonRpcProvider(localProviderUrlFromEnv);

@@ -26,7 +26,6 @@ import { useState, useEffect } from "react";
 */
 
 const loadContract = (contractName, signer) => {
-	console.log(contractName, "~~~~~~~~~~~~~~")
 	const newContract = new Contract(
 		require(`../contracts/${ contractName }.address.js`),
 		require(`../contracts/${ contractName }.abi.js`),

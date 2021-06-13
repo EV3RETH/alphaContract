@@ -6,12 +6,12 @@ import { NETWORKS } from '../../constants';
 import A from "../../assets/A-transparent.png"
 import B from "../../assets/B-transparent.png"
 import X from "../../assets/X-transparent.png"
-import titlePlain from "../../assets/Evereth-plain.png"
 const E = process.env.PUBLIC_URL + "/Etoken.png"
 
 //CHANGE NETWORK HERE
 const targetNetwork = NETWORKS.rinkeby; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 // const targetNetwork = NETWORKS.localhost
+
 const localProviderUrl = targetNetwork.rpcUrl;
 const localProviderUrlFromEnv = process.env.REACT_APP_PROVIDER ? process.env.REACT_APP_PROVIDER : localProviderUrl;
 const localProvider = new JsonRpcProvider(localProviderUrlFromEnv);
