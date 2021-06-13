@@ -10,7 +10,6 @@ strong {
 }
 strong i {
 	font-size: 20px;
-	color: aliceblue;
 }
 span[role="img"] {
 	font-style: normal;
@@ -25,7 +24,7 @@ span[role="img"] {
 	position: relative;
 	top: 0;
 	box-sizing: border-box;
-	padding: 150px 100px 100px;
+	padding: 140px 100px 100px;
 	width: 100%;
 	box-shadow: inset 1px 1px 20px 10px rgba(0, 0, 0, 0.5);
 	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(70, 70, 70, 0.8));
@@ -44,12 +43,12 @@ span[role="img"] {
 .main-header {
 	text-align: center;
 	font-size: 50px;
-	color: seashell;
 	text-shadow: 4px 4px 4px rgba(135, 207, 235, 0.5);
 
 	width: 70%;
 	margin: 0 auto 30px;
-	border-bottom: 4px double silver;
+	padding-bottom: 6px;
+	border-bottom: 4px double skyblue;
 }
 .img-container {
 	display: grid;
@@ -81,7 +80,7 @@ span[role="img"] {
 	position: relative;
 	max-width: 440px;
 	margin: 10px auto;
-	padding: 30px 20px 0px;
+	padding: 6px 20px 0px;
 	border-radius: 10px;
 	box-shadow: inset 1px 1px 5px 3px black;
 	border: 1px solid skyblue;
@@ -139,7 +138,7 @@ span[role="img"] {
 		margin: 0px auto 20px;
 	} */
 	.message-board {
-		padding: 150px 50px 50px;
+		padding: 140px 50px 50px;
 	}
 
 	.video-player {

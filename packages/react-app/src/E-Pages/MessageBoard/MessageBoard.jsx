@@ -105,7 +105,7 @@ export default function MessageBoard() {
 				<h2 className="full-row">
 					NFT in E minor + SUNflower (Teaser)
 				</h2>
-				<iframe className="full-row video-player" width="1000" height="562" src="https://www.youtube.com/embed/9jQZ6JlLNAk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<iframe className="full-row video-player" width="1000" height="562" src="https://www.youtube.com/embed/9jQZ6JlLNAk" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 			</div>
 		</div>
 	)

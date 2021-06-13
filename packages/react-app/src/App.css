@@ -5,7 +5,7 @@ html {
 body {
 		font-family: var(--body-font);
 		background-color: black;
-		color: skyblue;
+		color: seashell;
 		font-size: 16px;
 		box-sizing: border-box;
 		height: 100%;
@@ -21,18 +21,18 @@ a {
 }
 
 h1 {
-	color: seashell;
+	color: white;
 	font-family: var(--heading-font);
 	font-size: 40px;
 }
 h2 {
-	color: seashell;
+	color: white;
 	font-size: 30px;
 }
 
 i {
 	font-size: 14px;
-	color: silver;
+	color: seashell;
 }
 
 button {
