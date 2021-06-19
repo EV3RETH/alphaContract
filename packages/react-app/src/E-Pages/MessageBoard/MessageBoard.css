@@ -32,13 +32,17 @@ span[role="img"] {
 	overflow: hidden;
 }
 
+.message-board p {
+	line-height: 30px;
+}
+
 .message-container {
 	margin: 0 auto;
 	width: 100%;
 	max-width: 1440px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 30px;
+	gap: 50px;
 }
 
 .main-header {
@@ -55,6 +59,7 @@ span[role="img"] {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	align-items: center;
+	gap: 10px;
 }
 
 .winner {
@@ -74,6 +79,7 @@ span[role="img"] {
 	cursor: pointer;
 	display: block;
 	margin: 20px auto;
+	font-size: 17px;
 }
 
 .pool {
@@ -131,13 +137,6 @@ span[role="img"] {
 }
 
 @media only screen and (max-width: 1150px) {
-	/* .img-container {
-		grid-template-columns: 1fr;
-	} */
-	/* .img-container img {
-		width: 70%;
-		margin: 0px auto 20px;
-	} */
 	.message-board {
 		padding: 140px 50px 50px;
 	}
@@ -152,7 +151,7 @@ span[role="img"] {
 		grid-template-columns: 1fr 2fr;
 	}
 	.message-container p {
-		font-size: 18px;	
+		font-size: 20px;	
 	}
 	.img-container {
 		grid-template-columns: 1fr;
@@ -162,10 +161,10 @@ span[role="img"] {
 		margin: 0px auto 10px;
 	}
 	.message-board {
-		padding: 25px
+		padding: 30px
 	}
 	.message-container {
-		gap: 15px
+		gap: 25px
 	}
 }
 

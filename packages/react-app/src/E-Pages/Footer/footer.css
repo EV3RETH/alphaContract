@@ -1,7 +1,9 @@
 
 footer {
-	display: flex;
-	justify-content: space-between;
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr 1fr 1fr;
+	justify-items: center;
 	align-items: center;
 	background: linear-gradient(180deg, rgba(63, 76, 80, 0.9),rgba(60, 45, 63, 0.9), rgba(47, 36, 39, 0.9));
 	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.8);
@@ -14,7 +16,9 @@ footer a img{
 	width: 24px;
 	margin-left: 25px;
 }
-
+.copyright {
+	justify-self: flex-start;
+}
 .socials {
-
+	justify-self: flex-end;
 }

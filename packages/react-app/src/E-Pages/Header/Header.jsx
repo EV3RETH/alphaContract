@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from "react-router-dom";
 import { PATHS } from "../../App";
-// import menu from '../../assets/menu.png'
 import menu from '../../assets/menu-slice.png'
 
 import './header.css'
 
 export default function Header({ wavesOn, toggleWaves }) {
 	const [isVisible, setIsVisible] = useState(false)
-	const [hasScrolled, setHasScrolled] = useState(false)
 	const { pathname } = useLocation()
 
 	const isVisibleClass = isVisible ? " nav-active" : ""
@@ -29,7 +27,11 @@ export default function Header({ wavesOn, toggleWaves }) {
 
 	useEffect(() => {
 		// if scrolling and not at the top of the window remove menu
-		const handleMove = () => setIsVisible(window.pageYOffset === 0)
+		const handleMove = () => {
+			const top = window.screen?.availHeight ? window.screen.height - window.screen.availHeight : 0
+			const isAtTop = window.pageYOffset === top
+			setIsVisible(isAtTop)
+		}
 		window.addEventListener("touchmove", handleMove)
 
 		return () => {

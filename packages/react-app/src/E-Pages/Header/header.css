@@ -28,7 +28,7 @@
 	justify-content: space-between;
 	align-items: center;
 	z-index: 5;
-	background: linear-gradient(180deg, rgba(63, 76, 80, 0.9),rgba(60, 45, 63, 0.9), rgba(47, 36, 39, 0.9));
+	background: linear-gradient(180deg, rgba(63, 76, 80, 1),rgba(60, 45, 63, 1), rgba(47, 36, 39, 1));
 	border-bottom-right-radius: 50px;
 	box-shadow: 0 -5px 5px 5px rgba(0, 0, 0, 1);
 	transition: 0.7s ease-in-out
@@ -84,8 +84,7 @@ nav a.selected::after {
 	.nav-container {
 		flex-direction: column;
 		left: 0;
-		top: -100%;
-		transition: 1.3s ease-in-out;
+		top: -15%;
 	}
 	.nav-container.nav-active {
 		top: 0;
@@ -96,7 +95,8 @@ nav a.selected::after {
 		align-items: center;
 	}
 	.links-container a {
-		margin: 5px 0 5px;
+		margin: 8px 0;
+		font-size: 23px;
 	}
 	nav a.selected::after {
 		bottom: -3px;

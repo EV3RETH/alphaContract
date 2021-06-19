@@ -6,7 +6,7 @@ import './footer.css'
 export default function Footer() {
 	return (
 		<footer>
-			<p>&#169; {new Date().getFullYear()} EV3RETH</p>
+			<p className="copyright">&#169; {new Date().getFullYear()} EV3RETH</p>
 			<a href={openSeaURL} target="_blank" rel="noopener noreferrer">Shop on OpenSea</a>
 
 			<div className="socials">

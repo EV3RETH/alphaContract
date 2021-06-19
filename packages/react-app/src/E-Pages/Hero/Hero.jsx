@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import './hero.css'
 import grid from "../../assets/swirly-grid-haze.png";

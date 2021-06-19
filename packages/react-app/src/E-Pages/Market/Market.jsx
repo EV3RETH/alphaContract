@@ -14,7 +14,7 @@ export default function() {
 	return (
 		<div className="market-container">
 			<i className="market-message">
-				~ You can buy Alpha Tokens using this embedded OpenSea storefront or shop directly on their website <a href={openSeaURL} target="_blank">here</a> ~
+				~ You can buy Alpha Tokens using this embedded OpenSea storefront or shop directly on their website <a href={openSeaURL} target="_blank" rel="noopener noreferrer">here</a> ~
 			</i>
 			{iframeLoading ? <h1 className="loading-title">...Loading</h1> : null}
 			<iframe onLoad={timeDisplay} id="opensea-iframe" className={iframeLoading ? "loading" : "loaded"} title="Embedded OpenSea Marketplace" src={embeddedUrl} width='100%' height='100%' frameBorder='0' allowFullScreen></iframe>

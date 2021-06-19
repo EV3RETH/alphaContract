@@ -43,13 +43,13 @@
 .title-haze {
 	--haze-margin-top: -100px;
 	--haze-margin-left: 7px;
-	--move-amount: 1;
+	--move-amount: 0.7;
 	width: 740px;
 	position: absolute;
 	margin-top: var(--haze-margin-top);
 	margin-left: var(--haze-margin-left);
-	animation: wiggle 15s infinite ease-in-out;
-	animation-delay: 5s;
+	animation: wiggle 20s infinite ease;
+	animation-delay: 3s;
 	max-width: 87%;
 }
 .title-main {
@@ -126,7 +126,7 @@
 		font-size: 20px;
 	}
 	.title-haze {
-		--move-amount: 0.8;
+		--move-amount: 0.55;
 		--haze-margin-top: -97px;
 		--have-margin-left: 5px;
 		width: 650px
@@ -144,7 +144,7 @@
 		font-size: 18px;
 	}
 	.title-haze {
-		--move-amount: 0.6;
+		--move-amount: 0.4;
 		--haze-margin-top: -96px;
 		width: 540px;
 	} 
@@ -157,7 +157,7 @@
 		font-size: 20px;
 	}
 	.title-haze {
-		--move-amount: 0.3;
+		--move-amount: 0.2;
 		--haze-margin-top: -93px;
 		--haze-margin-left: 3px;
 		width: 328px;
