@@ -20,19 +20,23 @@
 .nav-container {
 	position: fixed;
 	top: 0;
-	left: 0; 
-	display: none;
+	left: -100%; 
+	opacity: 0;
+	display: flex;
 	width: 100%;
 	padding: 20px 65px;
 	justify-content: space-between;
 	align-items: center;
 	z-index: 5;
 	background: linear-gradient(180deg, rgba(63, 76, 80, 0.9),rgba(60, 45, 63, 0.9), rgba(47, 36, 39, 0.9));
-	box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.8)
+	border-bottom-right-radius: 50px;
+	box-shadow: 0 -5px 5px 5px rgba(0, 0, 0, 1);
+	transition: 0.7s ease-in-out
 }
 
 .nav-container.nav-active {
-	display: flex;
+	left: 0;
+	opacity: 1;
 }
 nav a  {
 	text-decoration: none;
@@ -78,11 +82,13 @@ nav a.selected::after {
 
 @media only screen and (max-width: 800px) {
 	.nav-container {
-		display: none;
+		flex-direction: column;
+		left: 0;
+		top: -100%;
+		transition: 1.3s ease-in-out;
 	}
 	.nav-container.nav-active {
-		display: flex;
-		flex-direction: column;
+		top: 0;
 	}
 	.links-container {
 		display: flex;

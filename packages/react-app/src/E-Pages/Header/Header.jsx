@@ -8,6 +8,7 @@ import './header.css'
 
 export default function Header({ wavesOn, toggleWaves }) {
 	const [isVisible, setIsVisible] = useState(false)
+	const [hasScrolled, setHasScrolled] = useState(false)
 	const { pathname } = useLocation()
 
 	const isVisibleClass = isVisible ? " nav-active" : ""
@@ -17,9 +18,24 @@ export default function Header({ wavesOn, toggleWaves }) {
 	}
 
 	useEffect(() => {
-		if (pathname !== PATHS.Hero)
+		if (pathname !== PATHS.Hero) {
 			setIsVisible(true)
+		}
+
+		if (window.screen?.width <= 530) {
+			setIsVisible(false)
+		}
 	}, [pathname])
+
+	useEffect(() => {
+		// if scrolling and not at the top of the window remove menu
+		const handleMove = () => setIsVisible(window.pageYOffset === 0)
+		window.addEventListener("touchmove", handleMove)
+
+		return () => {
+			window.removeEventListener("touchmove", handleMove)
+		}
+	}, [])
 
 	return (
 		<nav>

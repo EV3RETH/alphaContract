@@ -26,6 +26,7 @@ export const PATHS = {
 
 export default function App(props) {
 	const [wavesOn, setWavesOn] = useState(false)
+	const [isLoaded, setIsLoaded] = useState(false)
 	const toggleWaves = () => setWavesOn(prev => !prev)
 
 	return (
@@ -51,7 +52,7 @@ export default function App(props) {
 				<Footer />
 			</Router>
 			{wavesOn ? <Waves color="rgba(0, 0, 0, 0)" /> : null}
-			<img src={starz} alt="" className="starz" />
+			<img src={starz} alt="" className={`starz${ isLoaded ? " loaded" : "" }`} onLoad={() => setIsLoaded(true)} />
 		</main>
 	)
 }
