@@ -45,12 +45,12 @@ export default function MessageBoard() {
 				<div>
 					<h1>Alpha Tokens</h1>
 					<p>
-						EV3RETH's genesis set of Smart NFTs (Non-Fungable Tokens).
+						EV3RETH's genesis set of Smart NFTs (Non-Fungible Tokens).
 						Owning these 1/1 collectable tokens proves cryptographically you are an original supporter of my work.
 						For that you have my deepest thanks in advance.
 					</p>
 					<p>
-						The tokens will live forever on the Ethereum Mainnet and the image assets themselves are hosted on the disributed web via <a href="https://ipfs.io/" target="_blank" rel="noopener noreferrer">IPFS</a> so unlike many NFTs your's will be truly and completely decentralized.
+						The tokens will live forever on the Ethereum Mainnet and the image assets themselves are hosted on the distributed web via <a href="https://ipfs.io/" target="_blank" rel="noopener noreferrer">IPFS</a> so unlike many NFTs your Alpha Token will be truly and completely decentralized.
 						Alpha Token's smart contract extends the ERC721 token contract to include additional perks for Alpha Token collectors.
 					</p>
 					<p>
@@ -65,7 +65,7 @@ export default function MessageBoard() {
 						The Gold tokens will not be for sale initially, although they may be sold after being given away.
 					</p>
 					<i>
-						I have implimented a 7.5% royalty so even if you decide to sell your token down the line you will still be supporting me and my future projects.
+						I have implemented a 7.5% royalty so even if you decide to sell your token down the line you will still be supporting me and my future projects.
 					</i>
 				</div>
 				<div className="winner full-row">
@@ -84,15 +84,15 @@ export default function MessageBoard() {
 						: <p><strong>After <i>~ {remaining} ~</i> more Alpha Tokens are sold the address pool closes forever!</strong>The winner will automatically be sent the X token and their address will be displayed here *</p>
 					}
 				</div>
-				<i className="disclaimer full-row">* if you do not want your public address displayed please contect me and I will remove it from the website.</i>
+				<i className="disclaimer full-row">* if you do not want your public address displayed please contact me and I will remove it from the website.</i>
 
 				<h1 className="main-header full-row">What's up Next</h1>
 
 				<div className="full-row">
 					<p>
-						The main piece of my next Smart NFT project will be a 1/1 original musical composition intigrated with generative visuals.
+						The main piece of my next Smart NFT project will be a 1/1 original musical composition integrated with generative visuals.
 						In addition there will be altered versions with print purchase and burn return prices calculated via bonding curve.
-						The owner of the original 1/1 piece will recieve royalties from these prints.
+						The owner of the original 1/1 piece will receive royalties from these prints.
 					</p>
 					<p>
 						Make sure to follow me on Twitter <a href="https://twitter.com/EV3RETH_NFT" target="_blank" rel="noopener noreferrer">@EV3RETH_NFT</a> to stay up to date with all the latest details!
