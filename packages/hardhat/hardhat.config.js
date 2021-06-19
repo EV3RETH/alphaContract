@@ -22,7 +22,7 @@ const { isAddress, getAddress, formatUnits, parseUnits } = utils;
 // Select the network you want to deploy to here:
 //
 //CHANGE NETWORK HERE
-const defaultNetwork = "rinkeby";
+const defaultNetwork = "mainnet";
 // const defaultNetwork = "localhost";
 
 function mnemonic() {

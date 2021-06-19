@@ -9,20 +9,19 @@ import X from "../../assets/X-transparent.png"
 const E = process.env.PUBLIC_URL + "/Etoken.png"
 
 //CHANGE NETWORK HERE
-const targetNetwork = NETWORKS.rinkeby; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
-// const targetNetwork = NETWORKS.localhost
+const targetNetwork = NETWORKS.mainnet; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 const localProviderUrl = targetNetwork.rpcUrl;
 const localProviderUrlFromEnv = process.env.REACT_APP_PROVIDER ? process.env.REACT_APP_PROVIDER : localProviderUrl;
 const localProvider = new JsonRpcProvider(localProviderUrlFromEnv);
 
-const verifiedContract = "https://rinkeby.etherscan.io/address/0x9b85f888BcF0C950d8FaB77Ea80c3C52048557Da#code"
+const verifiedContract = "https://etherscan.io/address/0x573ff139392d92858581549317664e5322647769#code"
 
 export default function MessageBoard() {
 	const [open, setOpen] = useState(false)
 
 	const readContracts = useContractLoader(localProvider)
-	const _winner = useContractReader(readContracts, "AlphaTokens", "whoGetsTheX")
+	const _winner = useContractReader(readContracts, "AlphaTokens", "XWinner")
 	const winner = _winner === "0x0000000000000000000000000000000000000000" ? null : _winner
 	const remaining = parseInt(useContractReader(readContracts, "AlphaTokens", "remaining")) - 13 || 10
 	const _pool = useContractReader(readContracts, "AlphaTokens", "getAddressPool")
@@ -44,34 +43,29 @@ export default function MessageBoard() {
 				</div>
 
 				<div>
-					<script src="https://unpkg.com/embeddable-nfts/dist/nft-card.min.js"></script>
 					<h1>Alpha Tokens</h1>
 					<p>
-						My genesis set of Smart Non-Fungible Tokens (Smart NFTs).
-						Owning one of these tokens proves cryptographically that you are indisputably an original supporter of mine.
-						For that let me give you my deepest thanks in advance.
+						EV3RETH's genesis set of Smart NFTs (Non-Fungable Tokens).
+						Owning these 1/1 collectable tokens proves cryptographically you are an original supporter of my work.
+						For that you have my deepest thanks in advance.
 					</p>
-					{/* <h2>What else makes them special?</h2> */}
 					<p>
-						Every single one of these tokens are unique and will never be minted again.
-						The tokens will live forever on the Ethereum Mainnet and the image assets themselves are hosted on the disributed web via <a href="https://ipfs.io/" target="_blank" rel="noopener noreferrer">IPFS</a> so unlike most NFTs yours will be be truly and completely decentralized.
-						Alpha Token's smart contract also extends the ERC721 token contract to include additional perks for Alpha Token holders.
+						The tokens will live forever on the Ethereum Mainnet and the image assets themselves are hosted on the disributed web via <a href="https://ipfs.io/" target="_blank" rel="noopener noreferrer">IPFS</a> so unlike many NFTs your's will be truly and completely decentralized.
+						Alpha Token's smart contract extends the ERC721 token contract to include additional perks for Alpha Token collectors.
 					</p>
-					{/* <h2>More perks you say? Tell me more!</h2> */}
 					<p>
-						Every time an Alpha Token is sold or traded the new holder's wallet address is stored on chain in the contract's "address pool".
-						After 10 tokens have been sold AlphaToken's smart contract (which can be verified <a href={verifiedContract} target="_blank" rel="noopener noreferrer">here</a>) will automatically choose a winner from this pool and send them the "X" token. After this happens the pool will close.
+						If you are among the first 10 collectors your address will be automatically added to the AlphaToken Smart Contract's address pool in the blockchain.
+						After the tenth token is sold one lucky hodler will be chosen at random by the contract and automatically gifted the coveted golden "X" token.
+						This contract behavior can be verified on <a href={verifiedContract} target="_blank" rel="noopener noreferrer">Etherscan</a>
 					</p>
-					{/* <h2>What varieties are there?</h2> */}
 					<p>
-						There are three tiers of AlphaTokens: Bronze, Silver, and Gold.
-						Bronze and Silver starting bids will be priced accordingly.
-						The Gold status is considered the most rare and not for sale initially, although they may be sold after they are given away.
-						The "X" will go to a winner chosen randomly by the contract, "Y" and "Z" will be given away by me randomly as incentives for spreading the word on social media, and I will be holding onto the "E" token myself for the foreseeable future.
+						AlphaTokens are divided between common Bronze, uncommon Silver and rare Gold.
+						Each token was also assigned a random "Hype" level upon minting.
+						The hype range for Bronze tokens is 50-79, Silver is 80-96, and Gold is 97-100.
+						The Gold tokens will not be for sale initially, although they may be sold after being given away.
 					</p>
 					<i>
-						Note: in addition to OpenSea's 2.5% seller fee, I have implimented a 7.5% royalty sellers fee that will go to me if you were to sell your token.
-						So when you make your millions selling these tokens down the line you will still be supporting me. Thank you!
+						I have implimented a 7.5% royalty so even if you decide to sell your token down the line you will still be supporting me and my future projects.
 					</i>
 				</div>
 				<div className="winner full-row">
@@ -96,7 +90,9 @@ export default function MessageBoard() {
 
 				<div className="full-row">
 					<p>
-						The main piece of my next Smart NFT project will be a 1/1 original musical composition plus accompanying generative visuals.
+						The main piece of my next Smart NFT project will be a 1/1 original musical composition intigrated with generative visuals.
+						In addition there will be altered versions with print purchase and burn return prices calculated via bonding curve.
+						The owner of the original 1/1 piece will recieve royalties from these prints.
 					</p>
 					<p>
 						Make sure to follow me on Twitter <a href="https://twitter.com/EV3RETH_NFT" target="_blank" rel="noopener noreferrer">@EV3RETH_NFT</a> to stay up to date with all the latest details!

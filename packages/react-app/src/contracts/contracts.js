@@ -1,1 +1,1 @@
-module.exports = ["AlphaTokens"];
+module.exports = [];

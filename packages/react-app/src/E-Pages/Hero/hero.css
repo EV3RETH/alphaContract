@@ -11,6 +11,7 @@
 	border-radius: 50%;
 	transition: 0.8s;
 	white-space: nowrap;
+	z-index: 3;
 }
 .button.small {
 	font-size: 22px;

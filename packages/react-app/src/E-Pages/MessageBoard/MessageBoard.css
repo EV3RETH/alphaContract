@@ -40,6 +40,7 @@ span[role="img"] {
 	grid-template-columns: 1fr 1fr;
 	gap: 30px;
 }
+
 .main-header {
 	text-align: center;
 	font-size: 50px;
@@ -149,6 +150,9 @@ span[role="img"] {
 @media only screen and (max-width: 800px) {
 	.message-container {
 		grid-template-columns: 1fr 2fr;
+	}
+	.message-container p {
+		font-size: 18px;	
 	}
 	.img-container {
 		grid-template-columns: 1fr;

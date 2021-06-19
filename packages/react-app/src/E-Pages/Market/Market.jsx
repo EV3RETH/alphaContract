@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import './Market.css'
 
 const YOURWALLETADDRESS = "0x49274c39B710d812ef3bE00350CF7fB96424416B"
-const embeddedUrl = `https://testnets.opensea.io/collection/alphatokens-v3-2?embed=true&ref=${ YOURWALLETADDRESS }`
-export const openSeaURL = `https://testnets.opensea.io/collection/alphatokens-v3-2?ref=${ YOURWALLETADDRESS }`
+const embeddedUrl = `https://opensea.io/collection/alphatokens?embed=true&ref=${ YOURWALLETADDRESS }`
+export const openSeaURL = `https://opensea.io/collection/alphatokens?ref=${ YOURWALLETADDRESS }`
 
 export default function() {
 	const [iframeLoading, setIframeLoading] = useState(true)
@@ -14,7 +14,7 @@ export default function() {
 	return (
 		<div className="market-container">
 			<i className="market-message">
-				~ You can buy Alpha Tokens using this embedded Open Sea storefront or shop directly on their website <a href={openSeaURL} target="_blank">here</a> ~
+				~ You can buy Alpha Tokens using this embedded OpenSea storefront or shop directly on their website <a href={openSeaURL} target="_blank">here</a> ~
 			</i>
 			{iframeLoading ? <h1 className="loading-title">...Loading</h1> : null}
 			<iframe onLoad={timeDisplay} id="opensea-iframe" className={iframeLoading ? "loading" : "loaded"} title="Embedded OpenSea Marketplace" src={embeddedUrl} width='100%' height='100%' frameBorder='0' allowFullScreen></iframe>

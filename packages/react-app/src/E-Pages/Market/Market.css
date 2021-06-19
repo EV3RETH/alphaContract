@@ -25,7 +25,7 @@
 }
 #opensea-iframe.loaded {
 	filter: none;
-	box-shadow: 1px 1px 15px 5px gray;
+	/* box-shadow: 1px 1px 15px 5px gray; */
 }
 
 @keyframes hueRotate {

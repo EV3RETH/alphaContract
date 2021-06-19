@@ -5,8 +5,12 @@ const { config, ethers, tenderly, run } = require("hardhat");
 const { utils } = require("ethers");
 const R = require("ramda");
 
+const AlphaTokens = {
+	address: "0x573fF139392D92858581549317664e5322647769"
+}
+
 //CHANGE NETWORK HERE
-const NETWORK = 'rinkeby'
+const NETWORK = 'mainnet'
 // const NETWORK = 'localhost'
 
 const main = async () => {
@@ -21,7 +25,8 @@ const main = async () => {
 		proxyRegistryAddress = "0xa5409ec958c83c3f309868babaca7c86dcb077c1";
 	}
 
-	const AlphaTokens = await deploy("AlphaTokens", [proxyRegistryAddress]) // <-- add in constructor args like line 19 vvvv
+	// const AlphaTokens = await deploy("AlphaTokens", [proxyRegistryAddress]) // <-- add in constructor args like line 19 vvvv
+
 
 	//const yourContract = await ethers.getContractAt('YourContract', "0xaAC799eC2d00C013f1F11c37E654e59B0429DF6A") //<-- if you want to instantiate a version of a contract at a specific address!
 	//const secondContract = await deploy("SecondContract")

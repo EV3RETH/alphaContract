@@ -18,7 +18,7 @@ contract AlphaTokens is ERC721, Ownable {
 	address proxyRegistryAddress;
 
 	address[] public addressPool;
-	address public whoGetsTheX = address(0);
+	address public XWinner = address(0);
 	uint public remaining = 23;
 
 
@@ -29,7 +29,7 @@ contract AlphaTokens is ERC721, Ownable {
 
 	function transferFrom(address from, address to, uint256 tokenId) public override(ERC721) {
 		super.transferFrom(from, to, tokenId);
-		if(whoGetsTheX == address(0)) {
+		if(XWinner == address(0)) {
 			addressPool.push(to);
 			remaining = getUnsold();
 			if(remaining == 13) { 
@@ -50,10 +50,10 @@ contract AlphaTokens is ERC721, Ownable {
 	}
 
 	function chooseXWinner() public {
-		require(whoGetsTheX == address(0), "The X is not here anymore");
+		require(XWinner == address(0), "The X is not here anymore");
 		uint randomIndex = random() % addressPool.length;
 		_transfer(address(this), addressPool[randomIndex], 24);
-		whoGetsTheX = addressPool[randomIndex];
+		XWinner = addressPool[randomIndex];
 	}
 
 	function getAddressPool() public view returns (address[] memory) {
