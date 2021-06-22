@@ -7,11 +7,14 @@ import titleHaze from "../../assets/evereth-color-haze.png"
 import { PATHS } from '../../App';
 
 export default function Hero({ wavesOn, toggleWaves }) {
+
+	const isFirefox = typeof InstallTrigger !== 'undefined';
+
 	return (
 		<div className="hero-container">
 
 			<img src={titlePlain} alt="" className={`title-main${ wavesOn ? " on" : "" }`} onClick={toggleWaves} />
-			<img src={titleHaze} alt="" className="title-haze" />
+			<img src={titleHaze} alt="" className={`title-haze${ isFirefox ? " firefox" : "" }`} />
 			<Link to={PATHS.Market} className="button">
 				BUY MY STUFF
 			</Link>

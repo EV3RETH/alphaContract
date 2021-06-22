@@ -27,7 +27,7 @@ span[role="img"] {
 	padding: 140px 100px 100px;
 	width: 100%;
 	box-shadow: inset 1px 1px 20px 10px rgba(0, 0, 0, 0.5);
-	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(70, 70, 70, 0.8));
+	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(70, 70, 70, 0.6));
 	text-shadow: 3px 3px 3px rgb(0, 0, 0);
 	overflow: hidden;
 }
@@ -50,7 +50,7 @@ span[role="img"] {
 	font-size: 50px;
 	text-shadow: 4px 4px 4px rgba(135, 207, 235, 0.5);
 
-	width: 70%;
+	width: 60%;
 	margin: 0 auto 30px;
 	padding-bottom: 6px;
 	border-bottom: 4px double skyblue;
@@ -111,13 +111,12 @@ span[role="img"] {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-.haze { 
-	margin: 50px 0;
-	position: relative;
-	left: -90%;
-	grid-column: 1 / span 2;
-	width: 50%;
-	animation: slide 25s infinite ease-in-out;
+.up-next {
+	width: 70%;
+	margin: 0 auto;
+}
+.up-next p{
+	margin-top: 0;
 }
 .video-player {
 	margin: 0 auto;
@@ -152,6 +151,7 @@ span[role="img"] {
 	}
 	.message-container p {
 		font-size: 20px;	
+		line-height: 32px;
 	}
 	.img-container {
 		grid-template-columns: 1fr;
@@ -165,6 +165,9 @@ span[role="img"] {
 	}
 	.message-container {
 		gap: 25px
+	}
+	.main-header, .up-next {
+		width: 90%
 	}
 }
 

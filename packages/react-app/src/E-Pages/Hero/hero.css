@@ -52,6 +52,9 @@
 	animation-delay: 3s;
 	max-width: 87%;
 }
+.title-haze.firefox {
+	--haze-margin-top: -200px;
+}
 .title-main {
 	width: 680px;
 	margin-bottom: 90px;

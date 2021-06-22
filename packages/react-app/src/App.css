@@ -39,6 +39,7 @@ button {
 	background: transparent;
 	border: none;
 	color: silver;
+	font-family: var(--body-font);
 }
 
 strong {

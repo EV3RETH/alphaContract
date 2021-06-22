@@ -3,7 +3,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 110px 30px 40px;
+	padding: 90px 0px 0px;
 	margin: 0 auto;
 	height: 100%;
 }
@@ -18,14 +18,13 @@
 #opensea-iframe {
 	z-index: 2;
 	height: 100%;
-	width: 80vw;
-	max-width: 1440px;
-	margin-top: 30px;
+	/* width: 80vw; */
+	/* max-width: 1440px; */
 	filter: brightness(0.8);
 }
 #opensea-iframe.loaded {
 	filter: none;
-	box-shadow: 1px 1px 15px 5px rgba(128, 128, 128, 0.5);
+	/* box-shadow: 1px 1px 15px 5px rgba(128, 128, 128, 0.5); */
 }
 
 @keyframes hueRotate {
@@ -40,9 +39,6 @@
 
 @media only screen and (max-width: 800px) {
 	.market-container {
-		padding: 30px;
-	}
-	#opensea-iframe {
-		width: 100%;
+		padding: 0px;
 	}
 }

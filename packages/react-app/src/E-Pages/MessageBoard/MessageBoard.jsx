@@ -47,25 +47,27 @@ export default function MessageBoard() {
 					<p>
 						EV3RETH's genesis set of Smart NFTs (Non-Fungible Tokens).
 						Owning these 1/1 collectable tokens proves cryptographically you are an original supporter of my work.
-						For that you have my deepest thanks in advance.
+						For that, you have my deepest thanks in advance.
 					</p>
 					<p>
-						The tokens will live forever on the Ethereum Mainnet and the image assets themselves are hosted on the distributed web via <a href="https://ipfs.io/" target="_blank" rel="noopener noreferrer">IPFS</a> so unlike many NFTs your Alpha Token will be truly and completely decentralized.
-						Alpha Token's smart contract extends the ERC721 token contract to include additional perks for Alpha Token collectors.
+						The tokens will live forever on the Ethereum Mainnet and the image assets themselves are hosted on the distributed web via <a href="https://ipfs.io/" target="_blank" rel="noopener noreferrer">IPFS</a>.
+						Unlike many NFTs your Alpha Token will be truly and completely decentralized.
+						Alpha Token's smart contract extends the ERC721 contract to include additional perks for Alpha Token collectors.
 					</p>
 					<p>
-						If you are among the first 10 collectors your address will be automatically added to the AlphaToken Smart Contract's address pool in the blockchain.
-						After the tenth token is sold one lucky hodler will be chosen at random by the contract and automatically gifted the coveted golden "X" token.
-						This contract behavior can be verified on <a href={verifiedContract} target="_blank" rel="noopener noreferrer">Etherscan</a>
+						If you are among the first ten collectors your address will be automatically added to the AlphaToken Smart Contract address pool in the blockchain.
+						After the tenth token is sold one lucky HODLer will be chosen at random by the contract and automatically gifted the coveted golden "X" token.
+						This contract behavior can be verified on <a href={verifiedContract} target="_blank" rel="noopener noreferrer">Etherscan</a>.
 					</p>
 					<p>
 						AlphaTokens are divided between common Bronze, uncommon Silver and rare Gold.
-						Each token was also assigned a random "Hype" level upon minting.
+						Each token was also assigned a random hype level upon minting.
 						The hype range for Bronze tokens is 50-79, Silver is 80-96, and Gold is 97-100.
-						The Gold tokens will not be for sale initially, although they may be sold after being given away.
+						The Gold tokens will not be for sale initially.
+						The "Y" and "Z" tokens will be gifted via social media giveaways (linked in footer).
 					</p>
 					<i>
-						I have implemented a 7.5% royalty so even if you decide to sell your token down the line you will still be supporting me and my future projects.
+						A 7.5% royalty has been implemented so secondary token sales will continue to support me and my future projects.
 					</i>
 				</div>
 				<div className="winner full-row">
@@ -80,15 +82,18 @@ export default function MessageBoard() {
 					</div>
 
 					{winner
-						? <strong><i>{winner}</i> is the winning address, they get the X. <br />Congratulations!</strong>
-						: <p><strong>After <i>~ {remaining} ~</i> more Alpha Tokens are sold the address pool closes forever!</strong>The winner will automatically be sent the X token and their address will be displayed here *</p>
+						? <strong><i>{winner}</i> is the winning address. <br />Congratulations!</strong>
+						: <p>
+							<strong>Only <i>~ {remaining} ~</i> more Alpha Tokens sales before the address pool closes forever!</strong>
+							The winner will automatically be sent the X token and their address will be displayed here*
+						</p>
 					}
 				</div>
-				<i className="disclaimer full-row">* if you do not want your public address displayed please contact me and I will remove it from the website.</i>
+				<i className="disclaimer full-row">*if you do not want your public address displayed please contact me and I will remove it from the website.</i>
 
 				<h1 className="main-header full-row">What's up Next</h1>
 
-				<div className="full-row">
+				<div className="full-row up-next">
 					<p>
 						The main piece of my next Smart NFT project will be a 1/1 original musical composition integrated with generative visuals.
 						In addition there will be altered versions with print purchase and burn return prices calculated via bonding curve.

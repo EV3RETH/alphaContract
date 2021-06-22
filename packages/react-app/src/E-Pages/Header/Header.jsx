@@ -52,11 +52,11 @@ export default function Header({ wavesOn, toggleWaves }) {
 					<Link to={PATHS.Hero} className={pathname === PATHS.Hero ? "selected" : ""}>
 						Home
 					</Link>
-					<Link to={PATHS.MessageBoard} className={pathname === PATHS.MessageBoard ? "selected" : ""}>
-						About
-					</Link>
 					<Link to={PATHS.Market} className={pathname === PATHS.Market ? "selected" : ""}>
 						Market Place
+					</Link>
+					<Link to={PATHS.MessageBoard} className={pathname === PATHS.MessageBoard ? "selected" : ""}>
+						About
 					</Link>
 					{/* <Link to={PATHS.Hero}>
 						<img src={process.env.PUBLIC_URL + "/E-300.png"} alt="" className="nav-icon" />
