@@ -1,5 +1,5 @@
 import React from 'react'
-import twitter from '../../assets/twitter_icon_64px.png'
+import twitter from '../../assets/twitter_icon_64px.webp'
 import { openSeaURL } from '../Market/Market'
 import './footer.css'
 

@@ -14,7 +14,17 @@ export default function() {
 	return (
 		<div className="market-container">
 			{iframeLoading ? <h1 className="loading-title">...Loading</h1> : null}
-			<iframe onLoad={timeDisplay} id="opensea-iframe" className={iframeLoading ? "loading" : "loaded"} title="Embedded OpenSea Marketplace" src={embeddedUrl} width='100%' height='100%' frameBorder='0' allowFullScreen></iframe>
+			<iframe
+				onLoad={timeDisplay}
+				id="opensea-iframe"
+				className={iframeLoading ? "loading" : "loaded"}
+				title="Embedded OpenSea Marketplace"
+				src={embeddedUrl}
+				width='100%'
+				height='100%'
+				frameBorder='0'
+				allowFullScreen
+			></iframe>
 		</div>
 	)
 }

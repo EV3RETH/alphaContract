@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './hero.css'
-import grid from "../../assets/swirly-grid-haze.png";
-import titlePlain from "../../assets/Evereth-plain.png"
-import titleHaze from "../../assets/evereth-color-haze.png"
+import grid from "../../assets/swirly-grid-haze.webp";
+import titlePlain from "../../assets/Evereth-plain.webp"
+import titleHaze from "../../assets/evereth-color-haze.webp"
 import { PATHS } from '../../App';
 
 export default function Hero({ wavesOn, toggleWaves }) {

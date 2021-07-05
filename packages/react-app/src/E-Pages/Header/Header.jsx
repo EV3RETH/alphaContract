@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from "react-router-dom";
 import { PATHS } from "../../App";
-import menu from '../../assets/menu-slice.png'
+import menu from '../../assets/menu-slice.webp'
 
 import './header.css'
 

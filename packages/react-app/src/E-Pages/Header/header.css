@@ -46,7 +46,7 @@ nav a.selected::after {
 	content: "";
 	width: 110%;
 	height: 3px;
-	border-radius: 2px;
+	border-radius: 100%;
 	background-image: linear-gradient(90deg, rgb(0, 200, 255), rgb(222, 0, 255), rgb(255, 0, 62));
 	position: absolute;
 	bottom: -5px;

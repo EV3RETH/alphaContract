@@ -18,13 +18,10 @@
 #opensea-iframe {
 	z-index: 2;
 	height: 100%;
-	/* width: 80vw; */
-	/* max-width: 1440px; */
 	filter: brightness(0.8);
 }
 #opensea-iframe.loaded {
 	filter: none;
-	/* box-shadow: 1px 1px 15px 5px rgba(128, 128, 128, 0.5); */
 }
 
 @keyframes hueRotate {

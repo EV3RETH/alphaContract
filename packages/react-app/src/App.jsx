@@ -6,7 +6,7 @@ import Hero from './E-Pages/Hero/Hero';
 import MessageBoard from './E-Pages/MessageBoard/MessageBoard';
 import Market from './E-Pages/Market/Market';
 import Header from './E-Pages/Header/Header';
-import starz from "./assets/new-stars.png";
+import starz from "./assets/new-stars.webp";
 import Footer from './E-Pages/Footer/Footer';
 
 // import { ThemeSwitcherProvider } from "react-css-theme-switcher";

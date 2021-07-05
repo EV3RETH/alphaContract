@@ -3,9 +3,9 @@ import { JsonRpcProvider } from "@ethersproject/providers";
 import './MessageBoard.css'
 import { useContractLoader, useContractReader } from '../../hooks'
 import { NETWORKS } from '../../constants';
-import A from "../../assets/A-transparent.png"
-import B from "../../assets/B-transparent.png"
-import X from "../../assets/X-transparent.png"
+import A from "../../assets/A-transparent.webp"
+import B from "../../assets/B-transparent.webp"
+import X from "../../assets/X-transparent.webp"
 const E = process.env.PUBLIC_URL + "/Etoken.png"
 
 //CHANGE NETWORK HERE
