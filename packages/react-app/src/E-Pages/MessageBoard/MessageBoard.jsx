@@ -100,7 +100,7 @@ export default function MessageBoard() {
 						The owner of the original 1/1 piece will receive royalties from these prints.
 					</p>
 					<p>
-						Make sure to follow me on Twitter <a href="https://twitter.com/EV3RETH_NFT" target="_blank" rel="noopener noreferrer">@EV3RETH_NFT</a> to stay up to date with all the latest details!
+						Make sure to follow me on Twitter <a href="https://twitter.com/EV3RETH" target="_blank" rel="noopener noreferrer">@EV3RETH</a> to stay up to date with all the latest details!
 					</p>
 				</div>
 				<h2 className="full-row">

@@ -10,7 +10,7 @@ export default function Footer() {
 			<a href={openSeaURL} target="_blank" rel="noopener noreferrer">Shop on OpenSea</a>
 
 			<div className="socials">
-				<a href="https://twitter.com/EV3RETH_NFT" target="_blank" rel="noopener noreferrer">
+				<a href="https://twitter.com/EV3RETH" target="_blank" rel="noopener noreferrer">
 					<img src={twitter} alt="Twitter Link" />
 				</a>
 				<a href="https://tryshowtime.com/ev3reth" target="_blank" rel="noopener noreferrer">
